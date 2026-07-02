@@ -16,11 +16,12 @@
             --border: #e2e8f0;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+        body, html {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
             background-color: var(--bg);
             color: var(--text);
             overflow-x: hidden;
+            width: 100%;
             line-height: 1.6;
             word-break: keep-all;
         }
@@ -46,7 +47,8 @@
         .hero-content {
             position: relative;
             z-index: 1;
-            padding: 20px;
+            padding: 0 20px;
+            width: 100%;
             animation: fadeIn 2s ease-out forwards;
         }
         .hero-subtitle {
@@ -65,6 +67,7 @@
             text-shadow: 2px 4px 15px rgba(0,0,0,0.6);
             letter-spacing: -1px;
             font-family: 'Montserrat', sans-serif;
+            line-height: 1.1;
         }
         .hero-desc {
             font-size: 1.4rem;
@@ -80,15 +83,15 @@
         /* Intro Info Section */
         .intro-section {
             background: white;
-            padding: 60px 40px;
+            padding: 50px 40px;
             text-align: center;
             max-width: 1000px;
-            margin: -50px auto 50px auto;
+            margin: -60px auto 50px auto;
             position: relative;
             z-index: 2;
             border-radius: 20px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.06);
-            width: 90%;
+            width: calc(100% - 40px);
         }
         .intro-title {
             font-size: 1.8rem;
@@ -111,31 +114,116 @@
         }
         .intro-box h4 { font-size: 1.2rem; color: var(--primary); margin-bottom: 15px; font-weight: 700; }
         .intro-box p { font-size: 1rem; color: var(--gray); margin-bottom: 10px; }
-        .intro-box ul { padding-left: 20px; margin-top: 10px; color: var(--text); font-weight: 500;}
+        .intro-box ul { 
+            padding-left: 20px; 
+            margin-top: 10px; 
+            color: var(--text); 
+            font-weight: 500;
+        }
         .intro-box li { margin-bottom: 6px; }
 
         /* Section Global */
         section {
-            padding: 80px 20px;
+            padding: 60px 20px;
             max-width: 1200px;
             margin: 0 auto;
+            width: 100%;
         }
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
+            padding: 0 10px;
         }
         .section-header h2 {
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             font-weight: 800;
             color: var(--primary);
-            position: relative;
-            display: inline-block;
             letter-spacing: -1.5px;
             margin-bottom: 15px;
         }
         .section-header p {
             color: var(--gray);
             font-size: 1.1rem;
+        }
+
+        /* Route Map Section */
+        .route-container {
+            background: white;
+            border-radius: 20px;
+            padding: 50px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            margin-bottom: 40px;
+            width: 100%;
+        }
+        .route-map-title {
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+        .route-timeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .route-timeline::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            left: 5%;
+            width: 90%;
+            height: 2px;
+            background: var(--border);
+            z-index: 0;
+        }
+        .route-node {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 25%;
+        }
+        .node-dot {
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+        .node-info h4 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        .node-info span {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--gray);
+            font-weight: 500;
+        }
+        .node-direction {
+            font-size: 0.8rem;
+            background: var(--bg);
+            padding: 3px 8px;
+            border-radius: 10px;
+            color: var(--accent);
+            margin-top: 5px;
+            display: inline-block;
         }
 
         /* Itinerary Summary Table */
@@ -203,8 +291,8 @@
             background: white;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.06);
-            margin-bottom: 80px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+            margin-bottom: 60px;
             opacity: 0;
             transform: translateY(40px);
             transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -222,8 +310,8 @@
         .day-image {
             position: relative;
             min-height: 300px;
-            overflow: hidden;
             background-color: #eee;
+            overflow: hidden;
         }
         .day-image img {
             width: 100%; height: 100%;
@@ -261,28 +349,34 @@
             line-height: 1.3;
         }
         .day-desc {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             line-height: 1.7;
             color: var(--gray);
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             font-weight: 400;
         }
         .highlight-list {
             list-style: none;
+            padding: 0;
+            margin: 0;
         }
         .highlight-list li {
-            margin-bottom: 12px;
-            padding-left: 28px;
             position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
             font-weight: 600;
             color: var(--primary);
             font-size: 1.05rem;
+            line-height: 1.5;
         }
         .highlight-list li::before {
             content: '';
             position: absolute;
-            left: 0; top: 8px;
-            width: 8px; height: 8px;
+            left: 0; 
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px; 
+            height: 6px;
             background-color: var(--accent);
             border-radius: 50%;
         }
@@ -294,28 +388,57 @@
             text-align: center;
             padding: 100px 20px;
             background-image: linear-gradient(to right, #1a252c, #2c3e50);
+            width: 100%;
         }
         .cta h2 { font-size: 2.2rem; margin-bottom: 20px; color: var(--accent); font-weight: 800; letter-spacing: -1px; }
         .cta p { font-size: 1.15rem; opacity: 0.9; max-width: 700px; margin: 0 auto; line-height: 1.8; color: #cbd5e1; }
         
-        /* 모바일 완벽 대응 (Mobile Responsiveness) */
+        /* 📱 모바일 완벽 대응 (Mobile Responsiveness) */
         @media(max-width: 768px) {
             .hero-title { font-size: 2.5rem; letter-spacing: -0.5px; }
             .hero-subtitle { font-size: 0.9rem; letter-spacing: 4px; }
             .hero-desc { font-size: 1.1rem; }
             
-            .intro-section { padding: 40px 20px; width: 92%; margin-top: -30px; }
+            .intro-section { padding: 35px 25px; width: 92%; margin-top: -40px; }
             .intro-grid { grid-template-columns: 1fr; gap: 20px; }
-            .intro-box { padding: 20px; }
+            .intro-box { padding: 25px; }
+            .intro-box ul { padding-left: 15px; } /* 모바일 인덴트 교정 */
             
-            section { padding: 50px 15px; }
-            .section-header { margin-bottom: 40px; }
-            .section-header h2 { font-size: 2rem; }
+            section { padding: 40px 15px; }
+            .section-header { margin-bottom: 30px; }
+            .section-header h2 { font-size: 1.9rem; }
             
+            /* Route Map 모바일 수직형태로 변경 */
+            .route-container { padding: 30px 20px; }
+            .route-timeline {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-left: 25px;
+            }
+            .route-timeline::before {
+                top: 10px;
+                left: 48px; /* 세로선 위치 */
+                width: 2px;
+                height: 90%;
+            }
+            .route-node {
+                flex-direction: row;
+                width: 100%;
+                text-align: left;
+                margin-bottom: 30px;
+            }
+            .route-node:last-child { margin-bottom: 0; }
+            .node-dot {
+                margin-bottom: 0;
+                margin-right: 20px;
+                flex-shrink: 0;
+            }
+            .node-direction { margin-top: 3px; }
+
             /* 모바일에서 테이블 짤림 완벽 방지 */
             .summary-wrapper { 
                 padding: 15px; 
-                border-radius: 12px; 
+                border-radius: 15px; 
                 background: transparent;
                 box-shadow: none;
             }
@@ -323,43 +446,51 @@
             .summary-table thead { display: none; }
             .summary-table tbody, .summary-table tr, .summary-table td { display: block; width: 100%; }
             .summary-table tr { 
-                margin-bottom: 20px; 
+                margin-bottom: 15px; 
                 background: white; 
                 border-radius: 12px;
                 box-shadow: 0 4px 15px rgba(0,0,0,0.05);
                 border: 1px solid var(--border);
             }
             .summary-table td { 
-                padding: 12px 15px; 
+                padding: 15px 20px; 
                 border-bottom: none;
                 text-align: left;
             }
             .summary-table td.day-col { 
-                font-size: 1.1rem; 
+                font-size: 1.15rem; 
                 background: var(--primary); 
                 color: white; 
                 border-top-left-radius: 11px; 
                 border-top-right-radius: 11px; 
-                padding: 12px 15px;
             }
             .summary-table td.area-col { 
-                font-size: 1rem; 
-                padding-top: 15px; 
+                font-size: 1.05rem; 
+                padding-top: 20px; 
                 color: var(--accent);
             }
-            .summary-table td.spots-col { 
-                padding-bottom: 20px; 
-            }
-            .spot-tag { font-size: 0.85rem; padding: 4px 10px; margin: 3px; }
+            .summary-table td.spots-col { padding-bottom: 25px; }
+            .spot-tag { font-size: 0.9rem; padding: 5px 12px; margin: 3px 2px; }
 
-            /* 모바일 카드 최적화 */
-            .day-card { margin-bottom: 40px; }
-            .day-image { min-height: 250px; }
-            .day-info { padding: 30px 20px; }
-            .day-title { font-size: 1.6rem; margin-bottom: 15px; }
-            .day-desc { font-size: 1rem; margin-bottom: 20px; }
-            .highlight-list li { font-size: 0.95rem; padding-left: 20px; margin-bottom: 10px; }
-            .highlight-list li::before { top: 7px; width: 6px; height: 6px; }
+            /* 모바일 카드 인덴트 최적화 */
+            .day-card { margin-bottom: 35px; border-radius: 15px; }
+            .day-image { min-height: 220px; }
+            .day-info { padding: 30px 25px; } /* 좌우 여백 확보 */
+            .day-title { font-size: 1.5rem; margin-bottom: 15px; }
+            .day-desc { font-size: 1rem; margin-bottom: 25px; }
+            
+            /* 리스트 들여쓰기(Indent) 완벽 교정 */
+            .highlight-list li { 
+                font-size: 0.95rem; 
+                padding-left: 22px; 
+                margin-bottom: 12px; 
+            }
+            .highlight-list li::before { 
+                width: 6px; 
+                height: 6px; 
+                top: 10px; /* 멀티라인 시 위쪽에 고정 */
+                transform: none; 
+            }
 
             .cta { padding: 60px 20px; }
             .cta h2 { font-size: 1.8rem; }
@@ -394,11 +525,57 @@
                 <ul>
                     <li>편안하고 쿠션감 있는 도보용 트레킹화/운동화</li>
                     <li>강한 여름 자외선을 피할 양산, 선글라스</li>
-                    <li>장거리 이동 시 택시 또는 지정 좌석 열차 활용 권장</li>
+                    <li>이동 시 택시 또는 지정 좌석 열차 활용 권장</li>
                 </ul>
             </div>
         </div>
     </div>
+
+    <!-- 🗺️ 여행 동선 개요 (Route Map) -->
+    <section>
+        <div class="section-header">
+            <h2>여정 동선 브리핑</h2>
+            <p>홋카이도의 중심부터 북부, 서부, 남부까지 최적의 동선</p>
+        </div>
+        
+        <div class="route-container">
+            <div class="route-map-title">📍 Sapporo Area Map Overview</div>
+            <div class="route-timeline">
+                <div class="route-node">
+                    <div class="node-dot">1</div>
+                    <div class="node-info">
+                        <h4>삿포로 도심</h4>
+                        <span>7/4 (도착 및 야경)</span>
+                        <div class="node-direction">Hokkaido Central</div>
+                    </div>
+                </div>
+                <div class="route-node">
+                    <div class="node-dot">2</div>
+                    <div class="node-info">
+                        <h4>비에이 & 후라노</h4>
+                        <span>7/5 (대자연 투어)</span>
+                        <div class="node-direction">North-East (북동부)</div>
+                    </div>
+                </div>
+                <div class="route-node">
+                    <div class="node-dot">3</div>
+                    <div class="node-info">
+                        <h4>샤코탄 & 오타루</h4>
+                        <span>7/6 (오션 뷰 & 로맨틱)</span>
+                        <div class="node-direction">West Coast (서해안)</div>
+                    </div>
+                </div>
+                <div class="route-node">
+                    <div class="node-dot">4</div>
+                    <div class="node-info">
+                        <h4>노보리베츠</h4>
+                        <span>7/7 (료칸 힐링 및 귀국)</span>
+                        <div class="node-direction">South (남부 온천마을)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- 전체 일정 개요 테이블 -->
     <section>
