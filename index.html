@@ -29,7 +29,8 @@
         /* Hero Section */
         .hero {
             position: relative;
-            height: 100vh;
+            height: 60vh;
+            min-height: 450px;
             background: url('images/farm_tomita.jpg') no-repeat center center/cover;
             display: flex;
             align-items: center;
@@ -59,7 +60,7 @@
             font-weight: 600;
         }
         .hero-title {
-            font-size: 3.5rem;
+            font-size: 2.6rem;
             font-weight: 800;
             margin-bottom: 20px;
             text-shadow: 2px 4px 15px rgba(0,0,0,0.6);
@@ -128,7 +129,7 @@
 
         /* Section Global */
         section {
-            padding: 60px 20px;
+            padding: 40px 20px;
             max-width: 1200px;
             margin: 0 auto;
             width: 100%;
@@ -195,7 +196,7 @@
         }
         .map-pin .label {
             margin-top: 8px;
-            background: rgba(255,255,255,0.95);
+            background: rgba(255,255,255,0.85);
             padding: 4px 10px;
             border-radius: 12px;
             font-size: 0.9rem;
@@ -341,7 +342,7 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 15px 40px rgba(0,0,0,0.05);
-            margin-bottom: 60px;
+            margin-bottom: 30px;
             opacity: 0;
             transform: translateY(40px);
             transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -375,7 +376,7 @@
             transform: scale(1.05);
         }
         .day-info {
-            padding: 50px;
+            padding: 30px 40px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -602,30 +603,30 @@
             <div class="infographic-map">
                 <!-- Connect Lines -->
                 <svg class="map-lines" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="42%" y1="62%" x2="58%" y2="45%" stroke="#b8860b" stroke-width="2.5" stroke-dasharray="6,6" />
-                    <line x1="58%" y1="45%" x2="35%" y2="55%" stroke="#b8860b" stroke-width="2.5" stroke-dasharray="6,6" />
-                    <line x1="35%" y1="55%" x2="38%" y2="80%" stroke="#b8860b" stroke-width="2.5" stroke-dasharray="6,6" />
+                    <line x1="52%" y1="68%" x2="75%" y2="35%" stroke="#b8860b" stroke-width="2.5" stroke-dasharray="6,6" />
+                    <line x1="75%" y1="35%" x2="20%" y2="40%" stroke="#b8860b" stroke-width="2.5" stroke-dasharray="6,6" />
+                    <line x1="20%" y1="40%" x2="30%" y2="85%" stroke="#b8860b" stroke-width="2.5" stroke-dasharray="6,6" />
                 </svg>
                 <!-- Map Pins -->
-                <!-- 1: Sapporo (Center-Left) -->
-                <div class="map-pin" style="top: 62%; left: 42%;">
+                <!-- 1: Sapporo (Center) -->
+                <div class="map-pin" style="top: 68%; left: 52%;">
                     <div class="dot">1</div>
-                    <div class="label">삿포로 (도착/베이스)</div>
+                    <div class="label">삿포로 (도착)</div>
                 </div>
                 <!-- 2: Biei/Furano (North-East) -->
-                <div class="map-pin" style="top: 45%; left: 58%;">
+                <div class="map-pin" style="top: 35%; left: 75%;">
                     <div class="dot">2</div>
                     <div class="label">비에이/후라노</div>
                 </div>
                 <!-- 3: Shakotan/Otaru (West) -->
-                <div class="map-pin" style="top: 55%; left: 35%;">
+                <div class="map-pin" style="top: 40%; left: 20%;">
                     <div class="dot">3</div>
                     <div class="label">샤코탄/오타루</div>
                 </div>
                 <!-- 4: Noboribetsu (South) -->
-                <div class="map-pin" style="top: 80%; left: 38%;">
+                <div class="map-pin" style="top: 85%; left: 30%;">
                     <div class="dot">4</div>
-                    <div class="label">노보리베츠 (온천)</div>
+                    <div class="label">노보리베츠</div>
                 </div>
             </div>
 
