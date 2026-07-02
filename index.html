@@ -159,6 +159,19 @@
             margin-bottom: 40px;
             width: 100%;
         }
+        .map-iframe-container {
+            width: 100%;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        .map-iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
         .route-map-title {
             text-align: center;
             font-size: 1.3rem;
@@ -547,7 +560,10 @@
         </div>
         
         <div class="route-container">
-            <div class="route-map-title">📍 3박 4일 이동 동선</div>
+            <div class="route-map-title">📍 3박 4일 이동 동선 (지도 기반)</div>
+            <div class="map-iframe-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1521406.8778619624!2d141.3543763!3d43.0620958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sko!2skr!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
             <div class="route-timeline">
                 <div class="route-node">
                     <div class="node-dot">1</div>
@@ -804,7 +820,7 @@
         <!-- Day 3: Shakotan -->
         <div class="day-card">
             <div class="day-image">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Cape_Kamui_%288133501657%29.jpg/800px-Cape_Kamui_%288133501657%29.jpg" alt="샤코탄 해안" loading="lazy">
+                <img src="images/shakotan.jpg" alt="샤코탄 해안" loading="lazy">
             </div>
             <div class="day-info">
                 <div class="day-badge">DAY 3 오전</div>
@@ -828,7 +844,7 @@
         <!-- Day 3: Otaru & Tenguyama -->
         <div class="day-card reverse">
             <div class="day-image">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Otaru_Canal_in_Hokkaido%2C_Japan.jpg/800px-Otaru_Canal_in_Hokkaido%2C_Japan.jpg" alt="오타루 운하" loading="lazy">
+                <img src="images/otaru.jpg" alt="오타루 운하" loading="lazy">
             </div>
             <div class="day-info">
                 <div class="day-badge">DAY 3 오후~밤</div>
@@ -852,7 +868,7 @@
         <!-- Day 4: Jigokudani -->
         <div class="day-card">
             <div class="day-image">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Noboribetsu_Jigokudani.jpg/800px-Noboribetsu_Jigokudani.jpg" alt="노보리베츠 지옥계곡" loading="lazy">
+                <img src="images/jigokudani.jpg" alt="노보리베츠 지옥계곡" loading="lazy">
             </div>
             <div class="day-info">
                 <div class="day-badge">DAY 4 아침~오후</div>
