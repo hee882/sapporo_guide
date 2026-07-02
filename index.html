@@ -351,9 +351,11 @@
             transform: translateY(0);
         }
         .day-card.reverse { flex-direction: row-reverse; }
+        .day-card.no-image { display: block; height: auto !important; }
+        .day-card.no-image .day-info { padding: 50px 40px; text-align: center; }
         @media(min-width: 1000px) {
-            .day-card { flex-direction: row; height: 500px; }
-            .day-image, .day-info { flex: 1; }
+            .day-card:not(.no-image) { flex-direction: row; height: 500px; }
+            .day-card:not(.no-image) .day-image, .day-card:not(.no-image) .day-info { flex: 1; }
         }
         
         .day-image {
@@ -758,49 +760,49 @@
             </div>
         </div>
 
-        <!-- Day 1: Beer Museum -->
+        <!-- Day 1: TV Tower -->
         <div class="day-card reverse">
             <div class="day-image">
-                <img src="images/beer_museum.jpg" alt="삿포로 맥주 박물관" loading="lazy">
+                <img src="images/tv_tower.jpg" alt="오도리 공원과 TV 타워" loading="lazy">
             </div>
             <div class="day-info">
-                <div class="day-badge">DAY 1 초저녁</div>
-                <h3 class="day-title">시원한 한 잔! 맥주 박물관</h3>
+                <div class="day-badge">DAY 1 오후</div>
+                <h3 class="day-title">오도리 공원 & 삿포로 TV 타워</h3>
                 <p class="day-desc">
-                    아빠가 좋아하실 만한 곳입니다! 옛날 붉은 벽돌 공장을 개조해서 만든 멋진 박물관이에요. 홋카이도에서만 맛볼 수 있는 '삿포로 클래식' 생맥주를 바로 뽑아서 시원하게 한 잔 들이켜면 피로가 싹 날아갈 겁니다.
+                    도심 한가운데 길게 뻗은 오도리 공원을 산책합니다. 공원 끝에 우뚝 솟은 빨간 TV 타워를 배경으로 가족 사진을 찍기 딱 좋은 곳이에요. 탁 트인 공원에서 여유롭게 첫날의 피로를 풀어봅니다.
                 </p>
                 <div class="bullet-list">
                     <div class="bullet-item">
                         <div class="bullet-dot"></div>
-                        <div class="bullet-text">멋진 붉은 벽돌 건물 구경</div>
+                        <div class="bullet-text">TV 타워 배경으로 기념 사진 남기기</div>
                     </div>
                     <div class="bullet-item">
                         <div class="bullet-dot"></div>
-                        <div class="bullet-text">시원한 삿포로 생맥주 3종 세트 맛보기</div>
+                        <div class="bullet-text">공원 벤치에서 커피 한잔의 여유</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Day 1: TV Tower & Susukino -->
+        <!-- Day 1: Susukino -->
         <div class="day-card">
             <div class="day-image">
-                <img src="images/tv_tower.jpg" alt="오도리 공원과 TV 타워" loading="lazy">
+                <img src="images/susukino.jpg" alt="스스키노 야경" loading="lazy">
             </div>
             <div class="day-info">
                 <div class="day-badge">DAY 1 밤</div>
-                <h3 class="day-title">반짝이는 오도리 공원과 맛있는 저녁</h3>
+                <h3 class="day-title">스스키노의 화려한 야경 & 징기스칸</h3>
                 <p class="day-desc">
-                    해가 질 때쯤 오도리 공원을 걸으면서 TV 타워 불빛을 구경하고, 삿포로에서 제일 번화한 '스스키노' 거리로 넘어갑니다. 첫날 저녁 메뉴는 삿포로 명물인 양고기 화로구이(징기스칸)! 입에서 살살 녹는 고기를 대접할게요.
+                    일본 3대 환락가 중 하나인 스스키노의 화려한 네온사인(니카상)을 구경합니다. 저녁으로는 홋카이도 명물인 양고기 구이 '징기스칸'을 맛보며 생맥주 한잔으로 하루를 마무리해요.
                 </p>
                 <div class="bullet-list">
                     <div class="bullet-item">
                         <div class="bullet-dot"></div>
-                        <div class="bullet-text">선선한 저녁 바람 맞으며 공원 걷기</div>
+                        <div class="bullet-text">유명한 '니카상' 전광판 앞에서 인증샷</div>
                     </div>
                     <div class="bullet-item">
                         <div class="bullet-dot"></div>
-                        <div class="bullet-text">화로에 구워먹는 최고급 징기스칸 고기 파티</div>
+                        <div class="bullet-text">부드러운 생 양고기 구이 '징기스칸'으로 저녁 식사</div>
                     </div>
                 </div>
             </div>
@@ -879,17 +881,14 @@
         </div>
 
         <!-- Day 3: Shakotan -->
-        <div class="day-card">
-            <div class="day-image">
-                <img src="images/shakotan.jpg" alt="샤코탄 해안" loading="lazy">
-            </div>
+        <div class="day-card no-image">
             <div class="day-info">
                 <div class="day-badge">DAY 3 오전</div>
                 <h3 class="day-title">가슴이 뻥 뚫리는 푸른 바다, 샤코탄</h3>
                 <p class="day-desc">
                     셋째 날은 바다 쪽으로 갑니다! 물이 너무 맑아서 '샤코탄 블루'라고 부르는 엄청난 해안 절벽을 구경할 거예요. 탁 트인 바다를 보면서 스트레스 싹 날리고, 점심으로는 여기서 제일 유명한 성게알(우니)을 먹을 겁니다!
                 </p>
-                <div class="bullet-list">
+                <div class="bullet-list" style="max-width: 600px; margin: 0 auto; text-align: left;">
                     <div class="bullet-item">
                         <div class="bullet-dot"></div>
                         <div class="bullet-text">시원한 바닷바람 맞으며 절경 구경</div>
@@ -903,17 +902,14 @@
         </div>
 
         <!-- Day 3: Otaru & Tenguyama -->
-        <div class="day-card reverse">
-            <div class="day-image">
-                <img src="images/otaru.jpg" alt="오타루 운하" loading="lazy">
-            </div>
+        <div class="day-card reverse no-image">
             <div class="day-info">
                 <div class="day-badge">DAY 3 오후~밤</div>
                 <h3 class="day-title">감성 가득한 운하 마을, 오타루</h3>
                 <p class="day-desc">
                     분위기 좋은 오타루 운하 옆을 걷고, 예쁜 오르골 소리가 가득한 가게도 구경합니다. 맛있는 치즈케이크도 먹고요! 밤에는 편하게 케이블카를 타고 산에 올라가서, 바다와 마을이 반짝이는 최고의 야경을 선물해 드릴게요.
                 </p>
-                <div class="bullet-list">
+                <div class="bullet-list" style="max-width: 600px; margin: 0 auto; text-align: left;">
                     <div class="bullet-item">
                         <div class="bullet-dot"></div>
                         <div class="bullet-text">운하 배경으로 인생 사진 남기기</div>
@@ -927,17 +923,14 @@
         </div>
 
         <!-- Day 4: Jigokudani -->
-        <div class="day-card">
-            <div class="day-image">
-                <img src="images/jigokudani.jpg" alt="노보리베츠 지옥계곡" loading="lazy">
-            </div>
+        <div class="day-card no-image">
             <div class="day-info">
                 <div class="day-badge">DAY 4 아침~오후</div>
                 <h3 class="day-title">피로를 싹 풀어줄 료칸 온천, 노보리베츠</h3>
                 <p class="day-desc">
                     여행의 마지막은 뜨끈한 온천입니다! 연기가 폴폴 나는 화산 계곡(지옥계곡)을 잠깐 구경하고, 최고급 일본식 료칸에서 맛있는 가이세키 정식을 먹고 천연 온천물에 푹 담그며 여행의 피로를 완벽하게 풀고 공항으로 갈게요!
                 </p>
-                <div class="bullet-list">
+                <div class="bullet-list" style="max-width: 600px; margin: 0 auto; text-align: left;">
                     <div class="bullet-item">
                         <div class="bullet-dot"></div>
                         <div class="bullet-text">프라이빗한 료칸에서 맛있는 일본 정식 먹기</div>
