@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>2026 SAPPORO PREMIUM SUMMER JOURNEY</title>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -88,6 +88,7 @@
             z-index: 2;
             border-radius: 20px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+            width: 90%;
         }
         .intro-title {
             font-size: 1.8rem;
@@ -144,13 +145,12 @@
             padding: 40px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.03);
             margin-bottom: 80px;
-            overflow-x: auto;
+            width: 100%;
         }
         .summary-table {
             width: 100%;
             border-collapse: separate;
             border-spacing: 0;
-            min-width: 700px;
         }
         .summary-table th, .summary-table td {
             padding: 20px;
@@ -223,6 +223,7 @@
             position: relative;
             min-height: 300px;
             overflow: hidden;
+            background-color: #eee;
         }
         .day-image img {
             width: 100%; height: 100%;
@@ -297,13 +298,72 @@
         .cta h2 { font-size: 2.2rem; margin-bottom: 20px; color: var(--accent); font-weight: 800; letter-spacing: -1px; }
         .cta p { font-size: 1.15rem; opacity: 0.9; max-width: 700px; margin: 0 auto; line-height: 1.8; color: #cbd5e1; }
         
+        /* 모바일 완벽 대응 (Mobile Responsiveness) */
         @media(max-width: 768px) {
-            .hero-title { font-size: 3rem; }
-            .intro-grid { grid-template-columns: 1fr; }
-            .day-info { padding: 40px 25px; }
-            .day-title { font-size: 1.6rem; }
+            .hero-title { font-size: 2.5rem; letter-spacing: -0.5px; }
+            .hero-subtitle { font-size: 0.9rem; letter-spacing: 4px; }
+            .hero-desc { font-size: 1.1rem; }
+            
+            .intro-section { padding: 40px 20px; width: 92%; margin-top: -30px; }
+            .intro-grid { grid-template-columns: 1fr; gap: 20px; }
+            .intro-box { padding: 20px; }
+            
+            section { padding: 50px 15px; }
+            .section-header { margin-bottom: 40px; }
             .section-header h2 { font-size: 2rem; }
-            .summary-wrapper { padding: 20px; }
+            
+            /* 모바일에서 테이블 짤림 완벽 방지 */
+            .summary-wrapper { 
+                padding: 15px; 
+                border-radius: 12px; 
+                background: transparent;
+                box-shadow: none;
+            }
+            .summary-table { display: block; width: 100%; border: none; }
+            .summary-table thead { display: none; }
+            .summary-table tbody, .summary-table tr, .summary-table td { display: block; width: 100%; }
+            .summary-table tr { 
+                margin-bottom: 20px; 
+                background: white; 
+                border-radius: 12px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+                border: 1px solid var(--border);
+            }
+            .summary-table td { 
+                padding: 12px 15px; 
+                border-bottom: none;
+                text-align: left;
+            }
+            .summary-table td.day-col { 
+                font-size: 1.1rem; 
+                background: var(--primary); 
+                color: white; 
+                border-top-left-radius: 11px; 
+                border-top-right-radius: 11px; 
+                padding: 12px 15px;
+            }
+            .summary-table td.area-col { 
+                font-size: 1rem; 
+                padding-top: 15px; 
+                color: var(--accent);
+            }
+            .summary-table td.spots-col { 
+                padding-bottom: 20px; 
+            }
+            .spot-tag { font-size: 0.85rem; padding: 4px 10px; margin: 3px; }
+
+            /* 모바일 카드 최적화 */
+            .day-card { margin-bottom: 40px; }
+            .day-image { min-height: 250px; }
+            .day-info { padding: 30px 20px; }
+            .day-title { font-size: 1.6rem; margin-bottom: 15px; }
+            .day-desc { font-size: 1rem; margin-bottom: 20px; }
+            .highlight-list li { font-size: 0.95rem; padding-left: 20px; margin-bottom: 10px; }
+            .highlight-list li::before { top: 7px; width: 6px; height: 6px; }
+
+            .cta { padding: 60px 20px; }
+            .cta h2 { font-size: 1.8rem; }
+            .cta p { font-size: 1rem; }
         }
     </style>
 </head>
@@ -365,7 +425,7 @@
                             <span class="spot-tag">삿포로 시계탑</span>
                             <span class="spot-tag">맥주 박물관</span>
                             <span class="spot-tag">오도리 공원 & TV타워</span>
-                            <span class="spot-tag">스스키노 (징기스칸 만찬)</span>
+                            <span class="spot-tag">스스키노 (만찬)</span>
                         </td>
                     </tr>
                     <tr>
@@ -415,7 +475,7 @@
         <!-- Day 1: Clock Tower -->
         <div class="day-card">
             <div class="day-image">
-                <img src="images/clock_tower.jpg" alt="삿포로 시계탑">
+                <img src="images/clock_tower.jpg" alt="삿포로 시계탑" loading="lazy">
             </div>
             <div class="day-info">
                 <div class="day-badge">DAY 1 Afternoon</div>
@@ -433,7 +493,7 @@
         <!-- Day 1: Beer Museum -->
         <div class="day-card reverse">
             <div class="day-image">
-                <img src="images/beer_museum.jpg" alt="삿포로 맥주 박물관">
+                <img src="images/beer_museum.jpg" alt="삿포로 맥주 박물관" loading="lazy">
             </div>
             <div class="day-info">
                 <div class="day-badge">DAY 1 Evening</div>
@@ -451,7 +511,7 @@
         <!-- Day 1: TV Tower & Susukino -->
         <div class="day-card">
             <div class="day-image">
-                <img src="images/tv_tower.jpg" alt="오도리 공원과 TV 타워">
+                <img src="images/tv_tower.jpg" alt="오도리 공원과 TV 타워" loading="lazy">
             </div>
             <div class="day-info">
                 <div class="day-badge">DAY 1 Night</div>
@@ -470,7 +530,7 @@
         <!-- Day 2: Nijo Market -->
         <div class="day-card reverse">
             <div class="day-image">
-                <img src="images/nijo_market.jpg" alt="니조 시장">
+                <img src="images/nijo_market.jpg" alt="니조 시장" loading="lazy">
             </div>
             <div class="day-info">
                 <div class="day-badge">DAY 2 Morning</div>
@@ -488,7 +548,7 @@
         <!-- Day 2: Shikisai & Blue Pond -->
         <div class="day-card">
             <div class="day-image">
-                <img src="images/blue_pond.jpg" alt="비에이 청의 호수">
+                <img src="images/blue_pond.jpg" alt="비에이 청의 호수" loading="lazy">
             </div>
             <div class="day-info">
                 <div class="day-badge">DAY 2 Afternoon</div>
@@ -506,7 +566,7 @@
         <!-- Day 2: Farm Tomita & Ningle Terrace -->
         <div class="day-card reverse">
             <div class="day-image">
-                <img src="images/ningle_terrace.jpg" alt="닝구르 테라스">
+                <img src="images/ningle_terrace.jpg" alt="닝구르 테라스" loading="lazy">
             </div>
             <div class="day-info">
                 <div class="day-badge">DAY 2 Evening</div>
@@ -524,7 +584,7 @@
         <!-- Day 3: Shakotan -->
         <div class="day-card">
             <div class="day-image">
-                <img src="images/shakotan.jpg" alt="샤코탄 해안">
+                <img src="images/shakotan.jpg" alt="샤코탄 해안" loading="lazy">
             </div>
             <div class="day-info">
                 <div class="day-badge">DAY 3 Morning</div>
@@ -542,7 +602,7 @@
         <!-- Day 3: Otaru & Tenguyama -->
         <div class="day-card reverse">
             <div class="day-image">
-                <img src="images/tenguyama.jpg" alt="텐구야마 야경">
+                <img src="images/tenguyama.jpg" alt="텐구야마 야경" loading="lazy">
             </div>
             <div class="day-info">
                 <div class="day-badge">DAY 3 Afternoon to Night</div>
@@ -561,7 +621,7 @@
         <!-- Day 4: Jigokudani -->
         <div class="day-card">
             <div class="day-image">
-                <img src="images/jigokudani.jpg" alt="노보리베츠 지옥계곡">
+                <img src="images/jigokudani.jpg" alt="노보리베츠 지옥계곡" loading="lazy">
             </div>
             <div class="day-info">
                 <div class="day-badge">DAY 4 Morning</div>
