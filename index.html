@@ -4,22 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2026 SAPPORO PREMIUM SUMMER JOURNEY</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #1a252c;
-            --accent: #c49a45; /* premium gold */
-            --bg: #f8f9fa;
-            --text: #4a4a4a;
+            --accent: #b8860b; /* premium gold */
+            --bg: #f5f7fa;
+            --text: #333333;
+            --gray: #7a8b9a;
+            --border: #e2e8f0;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Noto Serif KR', serif;
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
             background-color: var(--bg);
             color: var(--text);
             overflow-x: hidden;
             line-height: 1.6;
+            word-break: keep-all;
         }
+        
         /* Hero Section */
         .hero {
             position: relative;
@@ -36,7 +41,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.85));
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85));
         }
         .hero-content {
             position: relative;
@@ -46,24 +51,26 @@
         }
         .hero-subtitle {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
-            letter-spacing: 6px;
+            font-size: 1.1rem;
+            letter-spacing: 8px;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             color: var(--accent);
             font-weight: 600;
         }
         .hero-title {
             font-size: 4.5rem;
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 20px;
             text-shadow: 2px 4px 15px rgba(0,0,0,0.6);
-            letter-spacing: -2px;
+            letter-spacing: -1px;
+            font-family: 'Montserrat', sans-serif;
         }
         .hero-desc {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 400;
-            opacity: 0.9;
+            opacity: 0.95;
+            letter-spacing: -0.5px;
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(30px); }
@@ -73,20 +80,21 @@
         /* Intro Info Section */
         .intro-section {
             background: white;
-            padding: 80px 20px;
+            padding: 60px 40px;
             text-align: center;
-            max-width: 900px;
+            max-width: 1000px;
             margin: -50px auto 50px auto;
             position: relative;
             z-index: 2;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
         }
         .intro-title {
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: var(--primary);
             margin-bottom: 30px;
             font-weight: 700;
+            letter-spacing: -1px;
         }
         .intro-grid {
             display: grid;
@@ -97,49 +105,108 @@
         .intro-box {
             background: var(--bg);
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 12px;
             border-left: 4px solid var(--accent);
         }
-        .intro-box h4 { font-size: 1.2rem; color: var(--primary); margin-bottom: 15px; }
-        .intro-box p, .intro-box ul { font-size: 1rem; color: #555; }
-        .intro-box ul { padding-left: 20px; margin-top: 10px; }
+        .intro-box h4 { font-size: 1.2rem; color: var(--primary); margin-bottom: 15px; font-weight: 700; }
+        .intro-box p { font-size: 1rem; color: var(--gray); margin-bottom: 10px; }
+        .intro-box ul { padding-left: 20px; margin-top: 10px; color: var(--text); font-weight: 500;}
+        .intro-box li { margin-bottom: 6px; }
 
         /* Section Global */
         section {
-            padding: 60px 20px;
+            padding: 80px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
         .section-header {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
         }
         .section-header h2 {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
+            font-weight: 800;
             color: var(--primary);
             position: relative;
             display: inline-block;
-            letter-spacing: -1px;
+            letter-spacing: -1.5px;
+            margin-bottom: 15px;
         }
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            width: 40%; height: 3px;
-            background: var(--accent);
-            bottom: -20px; left: 30%;
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
         }
 
-        /* Day Cards Layout */
+        /* Itinerary Summary Table */
+        .summary-wrapper {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            margin-bottom: 80px;
+            overflow-x: auto;
+        }
+        .summary-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            min-width: 700px;
+        }
+        .summary-table th, .summary-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .summary-table th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+        }
+        .summary-table th:first-child { border-top-left-radius: 12px; }
+        .summary-table th:last-child { border-top-right-radius: 12px; }
+        .summary-table tr:last-child td { border-bottom: none; }
+        .summary-table td.day-col {
+            font-weight: 700;
+            color: var(--primary);
+            white-space: nowrap;
+            width: 15%;
+            font-size: 1.1rem;
+        }
+        .summary-table td.area-col {
+            font-weight: 600;
+            color: var(--accent);
+            width: 20%;
+        }
+        .summary-table td.spots-col {
+            color: var(--text);
+            line-height: 1.8;
+        }
+        .spot-tag {
+            display: inline-block;
+            background: var(--bg);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 4px;
+            border: 1px solid var(--border);
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* Day Cards Layout (Detailed Itinerary) */
         .day-card {
             display: flex;
             flex-direction: column;
             background: white;
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 15px 50px rgba(0,0,0,0.06);
-            margin-bottom: 100px;
+            margin-bottom: 80px;
             opacity: 0;
-            transform: translateY(50px);
+            transform: translateY(40px);
             transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
         .day-card.visible {
@@ -148,26 +215,27 @@
         }
         .day-card.reverse { flex-direction: row-reverse; }
         @media(min-width: 1000px) {
-            .day-card { flex-direction: row; height: 550px; }
+            .day-card { flex-direction: row; height: 500px; }
             .day-image, .day-info { flex: 1; }
         }
         
         .day-image {
             position: relative;
-            min-height: 350px;
+            min-height: 300px;
+            overflow: hidden;
         }
         .day-image img {
             width: 100%; height: 100%;
             object-fit: cover;
             position: absolute;
             top: 0; left: 0;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease;
         }
         .day-card:hover .day-image img {
             transform: scale(1.05);
         }
         .day-info {
-            padding: 60px;
+            padding: 50px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -177,23 +245,26 @@
         .day-badge {
             font-family: 'Montserrat', sans-serif;
             color: var(--accent);
-            font-weight: 600;
-            font-size: 1rem;
+            font-weight: 700;
+            font-size: 0.95rem;
             letter-spacing: 2px;
             margin-bottom: 15px;
             text-transform: uppercase;
         }
         .day-title {
-            font-size: 2.2rem;
-            margin-bottom: 25px;
+            font-size: 2rem;
+            margin-bottom: 20px;
             color: var(--primary);
+            font-weight: 800;
+            letter-spacing: -1px;
             line-height: 1.3;
         }
         .day-desc {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: #666;
-            margin-bottom: 35px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--gray);
+            margin-bottom: 30px;
+            font-weight: 400;
         }
         .highlight-list {
             list-style: none;
@@ -202,16 +273,17 @@
             margin-bottom: 12px;
             padding-left: 28px;
             position: relative;
-            font-weight: bold;
+            font-weight: 600;
             color: var(--primary);
             font-size: 1.05rem;
         }
         .highlight-list li::before {
-            content: '◆';
+            content: '';
             position: absolute;
-            left: 0; color: var(--accent);
-            font-size: 0.9rem;
-            top: 2px;
+            left: 0; top: 8px;
+            width: 8px; height: 8px;
+            background-color: var(--accent);
+            border-radius: 50%;
         }
 
         /* Call to Action */
@@ -220,18 +292,18 @@
             color: white;
             text-align: center;
             padding: 100px 20px;
-            margin-top: 50px;
             background-image: linear-gradient(to right, #1a252c, #2c3e50);
         }
-        .cta h2 { font-size: 2.5rem; margin-bottom: 25px; color: var(--accent); font-weight: 700; }
-        .cta p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 0 auto; line-height: 1.8; }
+        .cta h2 { font-size: 2.2rem; margin-bottom: 20px; color: var(--accent); font-weight: 800; letter-spacing: -1px; }
+        .cta p { font-size: 1.15rem; opacity: 0.9; max-width: 700px; margin: 0 auto; line-height: 1.8; color: #cbd5e1; }
         
         @media(max-width: 768px) {
             .hero-title { font-size: 3rem; }
             .intro-grid { grid-template-columns: 1fr; }
             .day-info { padding: 40px 25px; }
-            .day-title { font-size: 1.8rem; }
-            .section-header h2 { font-size: 2.2rem; }
+            .day-title { font-size: 1.6rem; }
+            .section-header h2 { font-size: 2rem; }
+            .summary-wrapper { padding: 20px; }
         }
     </style>
 </head>
@@ -252,8 +324,8 @@
                 <h4>⛅ 7월 초 삿포로 기후 및 복장</h4>
                 <p>홋카이도의 7월 초는 한국의 초여름과 유사하여 여행의 최적기입니다. 최고기온 24도, 최저기온 16도 내외로 쾌적합니다.</p>
                 <ul>
-                    <li><b>주간:</b> 가벼운 반팔, 쾌적한 리넨 셔츠</li>
-                    <li><b>야간/산간:</b> 일교차 대비용 얇은 가디건, 바람막이 필수</li>
+                    <li>주간: 가벼운 반팔, 쾌적한 리넨 셔츠</li>
+                    <li>야간/산간: 일교차 대비용 얇은 가디건, 바람막이 필수</li>
                 </ul>
             </div>
             <div class="intro-box">
@@ -268,9 +340,76 @@
         </div>
     </div>
 
+    <!-- 전체 일정 개요 테이블 -->
     <section>
         <div class="section-header">
-            <h2>여정의 주요 하이라이트</h2>
+            <h2>전체 일정 개요</h2>
+            <p>한눈에 보는 3박 4일 핵심 코스</p>
+        </div>
+        
+        <div class="summary-wrapper">
+            <table class="summary-table">
+                <thead>
+                    <tr>
+                        <th>일자</th>
+                        <th>지역</th>
+                        <th>주요 방문지</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="day-col">1일차 (7/4)</td>
+                        <td class="area-col">삿포로 시내</td>
+                        <td class="spots-col">
+                            <span class="spot-tag">신치토세 공항 도착</span>
+                            <span class="spot-tag">삿포로 시계탑</span>
+                            <span class="spot-tag">맥주 박물관</span>
+                            <span class="spot-tag">오도리 공원 & TV타워</span>
+                            <span class="spot-tag">스스키노 (징기스칸 만찬)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="day-col">2일차 (7/5)</td>
+                        <td class="area-col">비에이 & 후라노</td>
+                        <td class="spots-col">
+                            <span class="spot-tag">니조 시장 (카이센동)</span>
+                            <span class="spot-tag">비에이 청의 호수</span>
+                            <span class="spot-tag">사계채의 언덕</span>
+                            <span class="spot-tag">팜 토미타 (라벤더)</span>
+                            <span class="spot-tag">닝구르 테라스</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="day-col">3일차 (7/6)</td>
+                        <td class="area-col">샤코탄 & 오타루</td>
+                        <td class="spots-col">
+                            <span class="spot-tag">샤코탄 카무이 곶</span>
+                            <span class="spot-tag">오타루 운하</span>
+                            <span class="spot-tag">오타루 오르골당</span>
+                            <span class="spot-tag">르타오 본점</span>
+                            <span class="spot-tag">텐구야마 로프웨이 야경</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="day-col">4일차 (7/7)</td>
+                        <td class="area-col">노보리베츠</td>
+                        <td class="spots-col">
+                            <span class="spot-tag">전통 료칸 숙박</span>
+                            <span class="spot-tag">천연 유황 온천욕</span>
+                            <span class="spot-tag">지옥계곡(지고쿠다니)</span>
+                            <span class="spot-tag">신치토세 공항 (귀국)</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 상세 일정 섹션 -->
+    <section>
+        <div class="section-header">
+            <h2>상세 일정 안내</h2>
+            <p>각 명소별 뷰포인트와 투어 가이드</p>
         </div>
 
         <!-- Day 1: Clock Tower -->
@@ -349,7 +488,7 @@
         <!-- Day 2: Shikisai & Blue Pond -->
         <div class="day-card">
             <div class="day-image">
-                <img src="images/shikisai.jpg" alt="사계채의 언덕">
+                <img src="images/blue_pond.jpg" alt="비에이 청의 호수">
             </div>
             <div class="day-info">
                 <div class="day-badge">DAY 2 Afternoon</div>
