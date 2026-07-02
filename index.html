@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>2026 SAPPORO PREMIUM SUMMER JOURNEY</title>
+    <title>우리가족 삿포로 여름휴가</title>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #1a252c;
-            --accent: #b8860b; /* premium gold */
+            --accent: #b8860b; 
             --bg: #f5f7fa;
             --text: #333333;
             --gray: #7a8b9a;
@@ -30,7 +30,7 @@
         .hero {
             position: relative;
             height: 100vh;
-            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Colors_at_Tomita_Farm_%2852297395808%29.jpg/1280px-Colors_at_Tomita_Farm_%2852297395808%29.jpg') no-repeat center center/cover;
+            background: url('images/farm_tomita.jpg') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -52,25 +52,22 @@
             animation: fadeIn 2s ease-out forwards;
         }
         .hero-subtitle {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.1rem;
-            letter-spacing: 8px;
-            text-transform: uppercase;
-            margin-bottom: 24px;
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
             color: var(--accent);
             font-weight: 600;
         }
         .hero-title {
-            font-size: 4.5rem;
+            font-size: 3.5rem;
             font-weight: 800;
             margin-bottom: 20px;
             text-shadow: 2px 4px 15px rgba(0,0,0,0.6);
-            letter-spacing: -1px;
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.1;
+            letter-spacing: -2px;
+            line-height: 1.2;
         }
         .hero-desc {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 400;
             opacity: 0.95;
             letter-spacing: -0.5px;
@@ -114,13 +111,20 @@
         }
         .intro-box h4 { font-size: 1.2rem; color: var(--primary); margin-bottom: 15px; font-weight: 700; }
         .intro-box p { font-size: 1rem; color: var(--gray); margin-bottom: 10px; }
-        .intro-box ul { 
-            padding-left: 20px; 
-            margin-top: 10px; 
+        
+        .check-list { margin-top: 10px; }
+        .check-item { 
+            display: flex; 
+            align-items: flex-start; 
+            margin-bottom: 8px; 
             color: var(--text); 
             font-weight: 500;
         }
-        .intro-box li { margin-bottom: 6px; }
+        .check-icon { 
+            margin-right: 10px; 
+            font-size: 0.9rem; 
+            margin-top: 2px;
+        }
 
         /* Section Global */
         section {
@@ -249,8 +253,7 @@
             background: var(--primary);
             color: white;
             font-weight: 600;
-            text-transform: uppercase;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Pretendard', sans-serif;
             letter-spacing: 1px;
         }
         .summary-table th:first-child { border-top-left-radius: 12px; }
@@ -355,30 +358,31 @@
             margin-bottom: 25px;
             font-weight: 400;
         }
-        .highlight-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+        
+        /* 인덴트 버그 방지용 div 기반 리스트 */
+        .bullet-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
-        .highlight-list li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 10px;
+        .bullet-item {
+            display: flex;
+            align-items: flex-start;
+        }
+        .bullet-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            margin-top: 9px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        .bullet-text {
             font-weight: 600;
             color: var(--primary);
             font-size: 1.05rem;
             line-height: 1.5;
-        }
-        .highlight-list li::before {
-            content: '';
-            position: absolute;
-            left: 0; 
-            top: 50%;
-            transform: translateY(-50%);
-            width: 6px; 
-            height: 6px;
-            background-color: var(--accent);
-            border-radius: 50%;
         }
 
         /* Call to Action */
@@ -386,23 +390,22 @@
             background: var(--primary);
             color: white;
             text-align: center;
-            padding: 100px 20px;
+            padding: 80px 20px;
             background-image: linear-gradient(to right, #1a252c, #2c3e50);
             width: 100%;
         }
-        .cta h2 { font-size: 2.2rem; margin-bottom: 20px; color: var(--accent); font-weight: 800; letter-spacing: -1px; }
+        .cta h2 { font-size: 2rem; margin-bottom: 20px; color: var(--accent); font-weight: 800; letter-spacing: -1px; }
         .cta p { font-size: 1.15rem; opacity: 0.9; max-width: 700px; margin: 0 auto; line-height: 1.8; color: #cbd5e1; }
         
         /* 📱 모바일 완벽 대응 (Mobile Responsiveness) */
         @media(max-width: 768px) {
-            .hero-title { font-size: 2.5rem; letter-spacing: -0.5px; }
-            .hero-subtitle { font-size: 0.9rem; letter-spacing: 4px; }
+            .hero-title { font-size: 2.8rem; letter-spacing: -0.5px; }
+            .hero-subtitle { font-size: 1rem; letter-spacing: 4px; }
             .hero-desc { font-size: 1.1rem; }
             
-            .intro-section { padding: 35px 25px; width: 92%; margin-top: -40px; }
+            .intro-section { padding: 35px 20px; width: 92%; margin-top: -40px; }
             .intro-grid { grid-template-columns: 1fr; gap: 20px; }
-            .intro-box { padding: 25px; }
-            .intro-box ul { padding-left: 15px; } /* 모바일 인덴트 교정 */
+            .intro-box { padding: 25px 20px; }
             
             section { padding: 40px 15px; }
             .section-header { margin-bottom: 30px; }
@@ -413,11 +416,11 @@
             .route-timeline {
                 flex-direction: column;
                 align-items: flex-start;
-                padding-left: 25px;
+                padding-left: 20px;
             }
             .route-timeline::before {
                 top: 10px;
-                left: 48px; /* 세로선 위치 */
+                left: 43px; /* 세로선 위치 */
                 width: 2px;
                 height: 90%;
             }
@@ -437,7 +440,7 @@
 
             /* 모바일에서 테이블 짤림 완벽 방지 */
             .summary-wrapper { 
-                padding: 15px; 
+                padding: 10px; 
                 border-radius: 15px; 
                 background: transparent;
                 box-shadow: none;
@@ -475,25 +478,15 @@
             /* 모바일 카드 인덴트 최적화 */
             .day-card { margin-bottom: 35px; border-radius: 15px; }
             .day-image { min-height: 220px; }
-            .day-info { padding: 30px 25px; } /* 좌우 여백 확보 */
+            .day-info { padding: 30px 20px; } /* 좌우 여백 확보 */
             .day-title { font-size: 1.5rem; margin-bottom: 15px; }
-            .day-desc { font-size: 1rem; margin-bottom: 25px; }
+            .day-desc { font-size: 1rem; margin-bottom: 20px; }
             
-            /* 리스트 들여쓰기(Indent) 완벽 교정 */
-            .highlight-list li { 
-                font-size: 0.95rem; 
-                padding-left: 22px; 
-                margin-bottom: 12px; 
-            }
-            .highlight-list li::before { 
-                width: 6px; 
-                height: 6px; 
-                top: 10px; /* 멀티라인 시 위쪽에 고정 */
-                transform: none; 
-            }
+            /* bullet 텍스트 사이즈 교정 */
+            .bullet-text { font-size: 0.95rem; }
 
             .cta { padding: 60px 20px; }
-            .cta h2 { font-size: 1.8rem; }
+            .cta h2 { font-size: 1.6rem; line-height: 1.4; }
             .cta p { font-size: 1rem; }
         }
     </style>
@@ -502,31 +495,46 @@
 
     <header class="hero">
         <div class="hero-content">
-            <div class="hero-subtitle">Premium Private Tour</div>
-            <h1 class="hero-title">SAPPORO ESCAPE</h1>
-            <p class="hero-desc">2026. 07. 04 — 07. 07 | Exclusive Journey in Hokkaido</p>
+            <div class="hero-subtitle">가족을 위한 스페셜 휴가</div>
+            <h1 class="hero-title">부모님과 함께하는<br>삿포로 여름 여행</h1>
+            <p class="hero-desc">2026년 7월 4일 — 7월 7일 | 제가 직접 짠 완벽 코스!</p>
         </div>
     </header>
 
     <div class="intro-section">
-        <h2 class="intro-title">여행 전 필수 안내 사항</h2>
+        <h2 class="intro-title">여행 출발 전 꼭! 확인해주세요 😊</h2>
         <div class="intro-grid">
             <div class="intro-box">
-                <h4>⛅ 7월 초 삿포로 기후 및 복장</h4>
-                <p>홋카이도의 7월 초는 한국의 초여름과 유사하여 여행의 최적기입니다. 최고기온 24도, 최저기온 16도 내외로 쾌적합니다.</p>
-                <ul>
-                    <li>주간: 가벼운 반팔, 쾌적한 리넨 셔츠</li>
-                    <li>야간/산간: 일교차 대비용 얇은 가디건, 바람막이 필수</li>
-                </ul>
+                <h4>⛅ 7월 초 삿포로 날씨와 옷차림</h4>
+                <p>다행히 삿포로는 한국보다 훨씬 덜 더워요! 여행하기 제일 좋은 초여름 날씨입니다. (최고 24도)</p>
+                <div class="check-list">
+                    <div class="check-item">
+                        <span class="check-icon">✔️</span>
+                        <span class="check-text">낮에는 쾌적하게 얇은 반팔이나 린넨 셔츠</span>
+                    </div>
+                    <div class="check-item">
+                        <span class="check-icon">✔️</span>
+                        <span class="check-text">아침저녁으로는 쌀쌀하니 얇은 바람막이나 가디건 필수!</span>
+                    </div>
+                </div>
             </div>
             <div class="intro-box">
-                <h4>🎒 실무 준비물 및 이동 팁</h4>
-                <p>부모님의 컨디션을 최우선으로 고려한 여유로운 동선 설계가 필요합니다.</p>
-                <ul>
-                    <li>편안하고 쿠션감 있는 도보용 트레킹화/운동화</li>
-                    <li>강한 여름 자외선을 피할 양산, 선글라스</li>
-                    <li>이동 시 택시 또는 지정 좌석 열차 활용 권장</li>
-                </ul>
+                <h4>🎒 편안한 여행을 위한 준비물</h4>
+                <p>많이 걷지 않게 동선을 짰지만, 그래도 발 편한 게 최고입니다.</p>
+                <div class="check-list">
+                    <div class="check-item">
+                        <span class="check-icon">✔️</span>
+                        <span class="check-text">제일 푹신하고 편한 운동화 신으세요!</span>
+                    </div>
+                    <div class="check-item">
+                        <span class="check-icon">✔️</span>
+                        <span class="check-text">햇빛이 쨍할 수 있으니 선글라스, 모자, 양산 챙기기</span>
+                    </div>
+                    <div class="check-item">
+                        <span class="check-icon">✔️</span>
+                        <span class="check-text">이동할 땐 무조건 제가 택시로 모실게요!</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -534,43 +542,43 @@
     <!-- 🗺️ 여행 동선 개요 (Route Map) -->
     <section>
         <div class="section-header">
-            <h2>여정 동선 브리핑</h2>
-            <p>홋카이도의 중심부터 북부, 서부, 남부까지 최적의 동선</p>
+            <h2>우리가 갈 곳들 한눈에 보기</h2>
+            <p>힘들지 않게 매일 조금씩 홋카이도를 돌아볼 거예요!</p>
         </div>
         
         <div class="route-container">
-            <div class="route-map-title">📍 Sapporo Area Map Overview</div>
+            <div class="route-map-title">📍 3박 4일 이동 동선</div>
             <div class="route-timeline">
                 <div class="route-node">
                     <div class="node-dot">1</div>
                     <div class="node-info">
                         <h4>삿포로 도심</h4>
-                        <span>7/4 (도착 및 야경)</span>
-                        <div class="node-direction">Hokkaido Central</div>
+                        <span>7/4 (도착 및 맛집)</span>
+                        <div class="node-direction">시내 중심가</div>
                     </div>
                 </div>
                 <div class="route-node">
                     <div class="node-dot">2</div>
                     <div class="node-info">
                         <h4>비에이 & 후라노</h4>
-                        <span>7/5 (대자연 투어)</span>
-                        <div class="node-direction">North-East (북동부)</div>
+                        <span>7/5 (꽃밭 대자연)</span>
+                        <div class="node-direction">위쪽(북동부)</div>
                     </div>
                 </div>
                 <div class="route-node">
                     <div class="node-dot">3</div>
                     <div class="node-info">
                         <h4>샤코탄 & 오타루</h4>
-                        <span>7/6 (오션 뷰 & 로맨틱)</span>
-                        <div class="node-direction">West Coast (서해안)</div>
+                        <span>7/6 (바다 & 야경)</span>
+                        <div class="node-direction">왼쪽(서해안)</div>
                     </div>
                 </div>
                 <div class="route-node">
                     <div class="node-dot">4</div>
                     <div class="node-info">
                         <h4>노보리베츠</h4>
-                        <span>7/7 (료칸 힐링 및 귀국)</span>
-                        <div class="node-direction">South (남부 온천마을)</div>
+                        <span>7/7 (료칸 힐링)</span>
+                        <div class="node-direction">아래쪽(남부 온천)</div>
                     </div>
                 </div>
             </div>
@@ -580,61 +588,61 @@
     <!-- 전체 일정 개요 테이블 -->
     <section>
         <div class="section-header">
-            <h2>전체 일정 개요</h2>
-            <p>한눈에 보는 3박 4일 핵심 코스</p>
+            <h2>매일매일 핵심 일정표</h2>
+            <p>복잡한 건 제가 다 알아서 할테니 이것만 딱 보시면 됩니다!</p>
         </div>
         
         <div class="summary-wrapper">
             <table class="summary-table">
                 <thead>
                     <tr>
-                        <th>일자</th>
-                        <th>지역</th>
-                        <th>주요 방문지</th>
+                        <th>날짜</th>
+                        <th>어디로 가나요?</th>
+                        <th>무엇을 보나요?</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="day-col">1일차 (7/4)</td>
-                        <td class="area-col">삿포로 시내</td>
+                        <td class="day-col">1일차 (7/4 토)</td>
+                        <td class="area-col">삿포로 시내 투어</td>
                         <td class="spots-col">
                             <span class="spot-tag">신치토세 공항 도착</span>
                             <span class="spot-tag">삿포로 시계탑</span>
-                            <span class="spot-tag">맥주 박물관</span>
-                            <span class="spot-tag">오도리 공원 & TV타워</span>
-                            <span class="spot-tag">스스키노 (만찬)</span>
+                            <span class="spot-tag">삿포로 맥주 박물관</span>
+                            <span class="spot-tag">오도리 공원</span>
+                            <span class="spot-tag">스스키노 (징기스칸 저녁)</span>
                         </td>
                     </tr>
                     <tr>
-                        <td class="day-col">2일차 (7/5)</td>
-                        <td class="area-col">비에이 & 후라노</td>
+                        <td class="day-col">2일차 (7/5 일)</td>
+                        <td class="area-col">대자연 비에이/후라노</td>
                         <td class="spots-col">
-                            <span class="spot-tag">니조 시장 (카이센동)</span>
-                            <span class="spot-tag">비에이 청의 호수</span>
+                            <span class="spot-tag">니조 시장 (해산물 아침)</span>
+                            <span class="spot-tag">청의 호수 (파란 호수)</span>
                             <span class="spot-tag">사계채의 언덕</span>
-                            <span class="spot-tag">팜 토미타 (라벤더)</span>
+                            <span class="spot-tag">팜 토미타 (보라색 라벤더)</span>
                             <span class="spot-tag">닝구르 테라스</span>
                         </td>
                     </tr>
                     <tr>
-                        <td class="day-col">3일차 (7/6)</td>
-                        <td class="area-col">샤코탄 & 오타루</td>
+                        <td class="day-col">3일차 (7/6 월)</td>
+                        <td class="area-col">감성 도시 오타루</td>
                         <td class="spots-col">
-                            <span class="spot-tag">샤코탄 카무이 곶</span>
-                            <span class="spot-tag">오타루 운하</span>
-                            <span class="spot-tag">오타루 오르골당</span>
-                            <span class="spot-tag">르타오 본점</span>
-                            <span class="spot-tag">텐구야마 로프웨이 야경</span>
+                            <span class="spot-tag">샤코탄 카무이 곶 (푸른 바다)</span>
+                            <span class="spot-tag">오타루 운하 산책</span>
+                            <span class="spot-tag">오르골당 구경</span>
+                            <span class="spot-tag">르타오 (디저트)</span>
+                            <span class="spot-tag">텐구야마 로프웨이 (멋진 야경)</span>
                         </td>
                     </tr>
                     <tr>
-                        <td class="day-col">4일차 (7/7)</td>
-                        <td class="area-col">노보리베츠</td>
+                        <td class="day-col">4일차 (7/7 화)</td>
+                        <td class="area-col">따뜻한 노보리베츠 온천</td>
                         <td class="spots-col">
-                            <span class="spot-tag">전통 료칸 숙박</span>
+                            <span class="spot-tag">최고급 료칸 푹 쉬기</span>
                             <span class="spot-tag">천연 유황 온천욕</span>
-                            <span class="spot-tag">지옥계곡(지고쿠다니)</span>
-                            <span class="spot-tag">신치토세 공항 (귀국)</span>
+                            <span class="spot-tag">지옥계곡 산책</span>
+                            <span class="spot-tag">오후 5시 비행기로 부산 귀국</span>
                         </td>
                     </tr>
                 </tbody>
@@ -645,179 +653,230 @@
     <!-- 상세 일정 섹션 -->
     <section>
         <div class="section-header">
-            <h2>상세 일정 안내</h2>
-            <p>각 명소별 뷰포인트와 투어 가이드</p>
+            <h2>상세 일정 미리보기</h2>
+            <p>우리가 직접 가서 보게 될 멋진 풍경들이에요!</p>
         </div>
 
         <!-- Day 1: Clock Tower -->
         <div class="day-card">
             <div class="day-image">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Sapporo-Clock-Tower-2018.jpg/800px-Sapporo-Clock-Tower-2018.jpg" alt="삿포로 시계탑" loading="lazy">
+                <img src="images/clock_tower.jpg" alt="삿포로 시계탑" loading="lazy">
             </div>
             <div class="day-info">
-                <div class="day-badge">DAY 1 Afternoon</div>
-                <h3 class="day-title">홋카이도 개척의 상징, 삿포로 시계탑</h3>
+                <div class="day-badge">DAY 1 오후</div>
+                <h3 class="day-title">삿포로의 상징, 시계탑</h3>
                 <p class="day-desc">
-                    신치토세 공항 도착 후 도심으로 진입하여 가장 먼저 마주하는 삿포로의 역사적 랜드마크입니다. 1878년에 지어진 새하얀 목조 건물과 붉은 지붕을 배경으로, 부모님과 함께 여행의 첫 시작을 알리는 뜻깊은 기념사진을 남기실 수 있습니다.
+                    비행기 타고 오시느라 고생하셨습니다! 공항에서 내리자마자 삿포로 시내로 편하게 들어오면 가장 먼저 보게 될 예쁜 하얀색 목조 건물입니다. 여기서 우리 가족 첫 단체 사진 예쁘게 찍을게요!
                 </p>
-                <ul class="highlight-list">
-                    <li>공항에서 도심 호텔까지 VIP 픽업/택시 이동</li>
-                    <li>삿포로 시계탑(Tokeidai) 건축 양식 감상 및 산책</li>
-                </ul>
+                <div class="bullet-list">
+                    <div class="bullet-item">
+                        <div class="bullet-dot"></div>
+                        <div class="bullet-text">공항에서 호텔까지 편안하게 택시로 이동</div>
+                    </div>
+                    <div class="bullet-item">
+                        <div class="bullet-dot"></div>
+                        <div class="bullet-text">예쁜 건물 앞에서 가볍게 산책하며 사진 찍기</div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Day 1: Beer Museum -->
         <div class="day-card reverse">
             <div class="day-image">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Sapporo_beer_museum-20091012-RM-211854.jpg/800px-Sapporo_beer_museum-20091012-RM-211854.jpg" alt="삿포로 맥주 박물관" loading="lazy">
+                <img src="images/beer_museum.jpg" alt="삿포로 맥주 박물관" loading="lazy">
             </div>
             <div class="day-info">
-                <div class="day-badge">DAY 1 Evening</div>
-                <h3 class="day-title">붉은 벽돌과 깊은 풍미, 삿포로 맥주 박물관</h3>
+                <div class="day-badge">DAY 1 초저녁</div>
+                <h3 class="day-title">시원한 한 잔! 맥주 박물관</h3>
                 <p class="day-desc">
-                    담쟁이덩굴이 고풍스럽게 얽힌 붉은 벽돌의 맥주 박물관을 방문합니다. 일본 맥주 산업의 발상지에서 갓 뽑아낸 신선한 삿포로 클래식 생맥주를 시음하며, 깊고 진한 홋카이도의 첫맛을 음미합니다.
+                    아빠가 좋아하실 만한 곳입니다! 옛날 붉은 벽돌 공장을 개조해서 만든 멋진 박물관이에요. 홋카이도에서만 맛볼 수 있는 '삿포로 클래식' 생맥주를 바로 뽑아서 시원하게 한 잔 들이켜면 피로가 싹 날아갈 겁니다.
                 </p>
-                <ul class="highlight-list">
-                    <li>개척사 시대의 붉은 벽돌 건축물 관람</li>
-                    <li>프리미엄 삿포로 클래식 3종 테이스팅 셋트 경험</li>
-                </ul>
+                <div class="bullet-list">
+                    <div class="bullet-item">
+                        <div class="bullet-dot"></div>
+                        <div class="bullet-text">멋진 붉은 벽돌 건물 구경</div>
+                    </div>
+                    <div class="bullet-item">
+                        <div class="bullet-dot"></div>
+                        <div class="bullet-text">시원한 삿포로 생맥주 3종 세트 맛보기</div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Day 1: TV Tower & Susukino -->
         <div class="day-card">
             <div class="day-image">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/20240923_Sapporo_Odori_Park.jpg/800px-20240923_Sapporo_Odori_Park.jpg" alt="오도리 공원과 TV 타워" loading="lazy">
+                <img src="images/tv_tower.jpg" alt="오도리 공원과 TV 타워" loading="lazy">
             </div>
             <div class="day-info">
-                <div class="day-badge">DAY 1 Night</div>
-                <h3 class="day-title">빛나는 오도리 공원과 스스키노 미식 투어</h3>
+                <div class="day-badge">DAY 1 밤</div>
+                <h3 class="day-title">반짝이는 오도리 공원과 맛있는 저녁</h3>
                 <p class="day-desc">
-                    도심을 가로지르는 오도리 공원의 은은한 분수와 TV 타워의 일루미네이션을 감상한 뒤, 화려한 스스키노 거리로 향합니다. 최고급 참숯 화로에서 구워내는 부드러운 홋카이도 명물 '징기스칸(양고기)' 코스 요리가 기다립니다.
+                    해가 질 때쯤 오도리 공원을 걸으면서 TV 타워 불빛을 구경하고, 삿포로에서 제일 번화한 '스스키노' 거리로 넘어갑니다. 첫날 저녁 메뉴는 삿포로 명물인 양고기 화로구이(징기스칸)! 입에서 살살 녹는 고기를 대접할게요.
                 </p>
-                <ul class="highlight-list">
-                    <li>오도리 공원 TV 타워 야경 조망</li>
-                    <li>스스키노 닛카상 야경 투어</li>
-                    <li>현지 최고급 징기스칸 화로구이 만찬</li>
-                </ul>
+                <div class="bullet-list">
+                    <div class="bullet-item">
+                        <div class="bullet-dot"></div>
+                        <div class="bullet-text">선선한 저녁 바람 맞으며 공원 걷기</div>
+                    </div>
+                    <div class="bullet-item">
+                        <div class="bullet-dot"></div>
+                        <div class="bullet-text">화로에 구워먹는 최고급 징기스칸 고기 파티</div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Day 2: Nijo Market -->
         <div class="day-card reverse">
             <div class="day-image">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/SAKURAKO_-_Nijo_Fish_Market._%288076893038%29.jpg/800px-SAKURAKO_-_Nijo_Fish_Market._%288076893038%29.jpg" alt="니조 시장" loading="lazy">
+                <img src="images/nijo_market.jpg" alt="니조 시장" loading="lazy">
             </div>
             <div class="day-info">
-                <div class="day-badge">DAY 2 Morning</div>
-                <h3 class="day-title">북해도 바다의 맛, 니조 시장 아침 산책</h3>
+                <div class="day-badge">DAY 2 아침</div>
+                <h3 class="day-title">싱싱한 해산물 가득, 니조 시장</h3>
                 <p class="day-desc">
-                    둘째 날 아침은 활기가 넘치는 삿포로의 주방, 니조 시장(Nijo Ichiba)에서 시작합니다. 갓 잡아 올린 거대한 털게와 성게알, 연어알이 넘칠 듯이 담긴 신선한 '카이센동(해산물 덮밥)'으로 럭셔리한 아침 식사를 즐깁니다.
+                    둘째 날 아침은 시장 구경부터 시작합니다! 삿포로의 주방이라 불리는 곳이에요. 아침 식사로 갓 잡은 게살, 연어알, 성게알이 듬뿍 올라간 덮밥(카이센동)을 먹으러 갈 거예요. 바다 맛 제대로 느끼실 수 있을 겁니다.
                 </p>
-                <ul class="highlight-list">
-                    <li>아침 시장의 생동감 넘치는 분위기 체험</li>
-                    <li>홋카이도 프리미엄 카이센동 조식</li>
-                </ul>
+                <div class="bullet-list">
+                    <div class="bullet-item">
+                        <div class="bullet-dot"></div>
+                        <div class="bullet-text">활기찬 아침 시장 분위기 느끼기</div>
+                    </div>
+                    <div class="bullet-item">
+                        <div class="bullet-dot"></div>
+                        <div class="bullet-text">신선도 100% 특급 해산물 덮밥 먹기</div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Day 2: Shikisai & Blue Pond -->
         <div class="day-card">
             <div class="day-image">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Shirogane_Blue_Pond%2C_Biei%2C_Hokkaido_Japan.jpg/800px-Shirogane_Blue_Pond%2C_Biei%2C_Hokkaido_Japan.jpg" alt="비에이 청의 호수" loading="lazy">
+                <img src="images/blue_pond.jpg" alt="비에이 청의 호수" loading="lazy">
             </div>
             <div class="day-info">
-                <div class="day-badge">DAY 2 Afternoon</div>
-                <h3 class="day-title">대자연의 마스터피스, 비에이 파노라마 로드</h3>
+                <div class="day-badge">DAY 2 낮</div>
+                <h3 class="day-title">그림 같은 언덕과 신비한 청의 호수</h3>
                 <p class="day-desc">
-                    광활한 언덕이 무지개빛 꽃들로 뒤덮인 '사계채의 언덕'을 트랙터 버스로 편안하게 둘러본 후, 에메랄드 물감을 풀어놓은 듯한 신비로운 '청의 호수(아오이이케)'와 장엄한 흰수염 폭포의 절경을 마주합니다.
+                    렌터카나 택시를 타고 자연이 끝내주는 비에이로 넘어갑니다. 에메랄드 물감을 풀어놓은 듯한 파란 '청의 호수'를 구경하고, 언덕 전체가 무지개색 꽃으로 덮인 '사계채의 언덕'에서 트랙터를 타고 편하게 구경할 거예요!
                 </p>
-                <ul class="highlight-list">
-                    <li>무지개 카펫을 연상케 하는 사계채의 언덕 관람</li>
-                    <li>신비로운 청의 호수 및 흰수염 폭포 산책</li>
-                </ul>
+                <div class="bullet-list">
+                    <div class="bullet-item">
+                        <div class="bullet-dot"></div>
+                        <div class="bullet-text">다리 아프지 않게 트랙터 버스 타고 꽃밭 구경</div>
+                    </div>
+                    <div class="bullet-item">
+                        <div class="bullet-dot"></div>
+                        <div class="bullet-text">사진에 다 안 담기는 파란 호수 감상</div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Day 2: Farm Tomita & Ningle Terrace -->
         <div class="day-card reverse">
             <div class="day-image">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/130503_Ningle_Terrace_Furano_Hokkaido_Japan01s3.jpg/800px-130503_Ningle_Terrace_Furano_Hokkaido_Japan01s3.jpg" alt="닝구르 테라스" loading="lazy">
+                <img src="images/ningle_terrace.jpg" alt="닝구르 테라스" loading="lazy">
             </div>
             <div class="day-info">
-                <div class="day-badge">DAY 2 Evening</div>
-                <h3 class="day-title">요정의 숲, 후라노 라벤더와 닝구르 테라스</h3>
+                <div class="day-badge">DAY 2 해질녘</div>
+                <h3 class="day-title">보랏빛 라벤더와 숲속 동화마을</h3>
                 <p class="day-desc">
-                    팜 토미타에서 짙은 라벤더 향기를 맡으며 끝없는 보랏빛 들판을 거닙니다. 해가 저물 무렵, 깊은 전나무 숲속에 은은한 조명이 켜지는 통나무 공방 마을 '닝구르 테라스'를 방문하여 동화 속 같은 고요한 저녁을 맞이합니다.
+                    후라노로 넘어가서 엄마가 정말 좋아하실 끝없는 보라색 라벤더 밭(팜 토미타)을 걷고, 엄청 달콤한 멜론도 먹을 거예요. 저녁에는 깊은 숲속에 조명이 켜지는 통나무집 마을 '닝구르 테라스'에서 요정이 나올 것 같은 야경을 봅니다.
                 </p>
-                <ul class="highlight-list">
-                    <li>팜 토미타 라벤더 관람 및 멜론 시식</li>
-                    <li>닝구르 테라스 숲속 수공예 공방 산책</li>
-                </ul>
+                <div class="bullet-list">
+                    <div class="bullet-item">
+                        <div class="bullet-dot"></div>
+                        <div class="bullet-text">향기로운 라벤더밭 구경 & 홋카이도 멜론 간식</div>
+                    </div>
+                    <div class="bullet-item">
+                        <div class="bullet-dot"></div>
+                        <div class="bullet-text">반짝이는 숲속 통나무 공방 마을 산책</div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Day 3: Shakotan -->
         <div class="day-card">
             <div class="day-image">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Cape_Kamui_%288133501657%29.jpg/800px-Cape_Kamui_%288133501657%29.jpg" alt="샤코탄 해안" loading="lazy">
+                <img src="images/shakotan.jpg" alt="샤코탄 해안" loading="lazy">
             </div>
             <div class="day-info">
-                <div class="day-badge">DAY 3 Morning</div>
-                <h3 class="day-title">투명한 코발트블루, 샤코탄 카무이 곶</h3>
+                <div class="day-badge">DAY 3 오전</div>
+                <h3 class="day-title">가슴이 뻥 뚫리는 푸른 바다, 샤코탄</h3>
                 <p class="day-desc">
-                    셋째 날은 북해도의 거친 자연을 품은 해안 절경으로 향합니다. '샤코탄 블루'라 불리는 압도적으로 투명하고 푸른 바다를 내려다보며 일상의 스트레스를 완벽하게 날려버리는 상쾌한 시간을 가집니다.
+                    셋째 날은 바다 쪽으로 갑니다! 물이 너무 맑아서 '샤코탄 블루'라고 부르는 엄청난 해안 절벽을 구경할 거예요. 탁 트인 바다를 보면서 스트레스 싹 날리고, 점심으로는 여기서 제일 유명한 성게알(우니)을 먹을 겁니다!
                 </p>
-                <ul class="highlight-list">
-                    <li>기암괴석과 어우러진 카무이 곶 절경 조망</li>
-                    <li>지역 특산물 최고급 성게알(우니) 정찬</li>
-                </ul>
+                <div class="bullet-list">
+                    <div class="bullet-item">
+                        <div class="bullet-dot"></div>
+                        <div class="bullet-text">시원한 바닷바람 맞으며 절경 구경</div>
+                    </div>
+                    <div class="bullet-item">
+                        <div class="bullet-dot"></div>
+                        <div class="bullet-text">입에서 녹아버리는 성게알 비빔밥 먹방</div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Day 3: Otaru & Tenguyama -->
         <div class="day-card reverse">
             <div class="day-image">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Mt_tengu_hokkaido.jpg/800px-Mt_tengu_hokkaido.jpg" alt="텐구야마 야경" loading="lazy">
+                <img src="images/otaru.jpg" alt="오타루 운하" loading="lazy">
             </div>
             <div class="day-info">
-                <div class="day-badge">DAY 3 Afternoon to Night</div>
-                <h3 class="day-title">오타루 낭만 산책과 텐구야마 야경</h3>
+                <div class="day-badge">DAY 3 오후~밤</div>
+                <h3 class="day-title">감성 가득한 운하 마을, 오타루</h3>
                 <p class="day-desc">
-                    영화 '러브레터'의 무대인 오타루. 붉은 벽돌 창고가 줄지어 선 아름다운 운하를 걷고 오르골당의 영롱한 선율을 감상합니다. 밤이 되면 케이블카를 타고 텐구야마 전망대에 올라 보석처럼 빛나는 홋카이도의 황홀한 바다 야경을 내려다봅니다.
+                    분위기 좋은 오타루 운하 옆을 걷고, 예쁜 오르골 소리가 가득한 가게도 구경합니다. 맛있는 치즈케이크도 먹고요! 밤에는 편하게 케이블카를 타고 산에 올라가서, 바다와 마을이 반짝이는 최고의 야경을 선물해 드릴게요.
                 </p>
-                <ul class="highlight-list">
-                    <li>오타루 운하 및 오르골 본당 관람</li>
-                    <li>달콤한 르타오(LeTAO) 본점 애프터눈 티 타임</li>
-                    <li>로프웨이 탑승 및 텐구야마 홋카이도 3대 야경 감상</li>
-                </ul>
+                <div class="bullet-list">
+                    <div class="bullet-item">
+                        <div class="bullet-dot"></div>
+                        <div class="bullet-text">운하 배경으로 인생 사진 남기기</div>
+                    </div>
+                    <div class="bullet-item">
+                        <div class="bullet-dot"></div>
+                        <div class="bullet-text">케이블카 타고 올라가서 멋진 야경 감상</div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Day 4: Jigokudani -->
         <div class="day-card">
             <div class="day-image">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Noboribetsu_Jigokudani.jpg/800px-Noboribetsu_Jigokudani.jpg" alt="노보리베츠 지옥계곡" loading="lazy">
+                <img src="images/jigokudani.jpg" alt="노보리베츠 지옥계곡" loading="lazy">
             </div>
             <div class="day-info">
-                <div class="day-badge">DAY 4 Morning</div>
-                <h3 class="day-title">궁극의 치유, 노보리베츠 전통 료칸 휴양</h3>
+                <div class="day-badge">DAY 4 아침~오후</div>
+                <h3 class="day-title">피로를 싹 풀어줄 료칸 온천, 노보리베츠</h3>
                 <p class="day-desc">
-                    여정의 피날레는 일본 최고의 온천 명소인 노보리베츠입니다. 수증기가 솟아오르는 신비로운 지옥계곡(지고쿠다니)의 풍광을 감상하고, 격조 높은 전통 료칸에서 프라이빗 유황 온천욕과 정교한 가이세키 요리로 부모님께 최고의 힐링을 선사합니다.
+                    여행의 마지막은 뜨끈한 온천입니다! 연기가 폴폴 나는 화산 계곡(지옥계곡)을 잠깐 구경하고, 최고급 일본식 료칸에서 맛있는 가이세키 정식을 먹고 천연 온천물에 푹 담그며 여행의 피로를 완벽하게 풀고 공항으로 갈게요!
                 </p>
-                <ul class="highlight-list">
-                    <li>장엄한 지옥계곡(지고쿠다니) 화산 지대 산책</li>
-                    <li>프리미엄 료칸 가이세키 정찬 및 온천 테라피</li>
-                    <li>여유로운 체크아웃 후 전용 차량으로 공항 이동</li>
-                </ul>
+                <div class="bullet-list">
+                    <div class="bullet-item">
+                        <div class="bullet-dot"></div>
+                        <div class="bullet-text">프라이빗한 료칸에서 맛있는 일본 정식 먹기</div>
+                    </div>
+                    <div class="bullet-item">
+                        <div class="bullet-dot"></div>
+                        <div class="bullet-text">따뜻한 온천욕 즐기고 여유롭게 공항 출발</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <footer class="cta">
-        <h2>잊지 못할 여정의 완벽한 가이드</h2>
-        <p>본 페이지는 2026년 여름, 부모님과 함께하는 홋카이도 VIP 투어의 전체 일정을 체계적으로 기획한 상세 가이드 문서입니다. 현지 상황에 맞추어 유연하게 일정을 조율하며, 최고의 휴식과 품격 있는 여행을 경험하시길 기원합니다.</p>
+        <h2>아빠, 엄마!<br>여름휴가는 제가 다 준비했어요!</h2>
+        <p>복잡한 비행기표 예약부터 길 찾기, 맛집 예약까지 아들이 전부 다 완벽하게 세팅해 두었습니다! 두 분은 그냥 편안한 마음과 가벼운 발걸음으로 오셔서 홋카이도에서 푹 쉬고 즐기기만 하시면 됩니다. 7월에 예쁜 추억 많이 만들고 와요! 사랑합니다! ❤️</p>
     </footer>
 
     <script>
