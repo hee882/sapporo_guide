@@ -1,0 +1,13 @@
+set timeout -1
+spawn npx surge ./ sapporo-guide-2026-jhyoo.surge.sh
+expect {
+    "email:" {
+        send "jhyoo-sapporo-2026-test@mailinator.com\r"
+        exp_continue
+    }
+    "password:" {
+        send "Sapporo2026!\r"
+        exp_continue
+    }
+    eof
+}

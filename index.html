@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>부모님과 함께하는 삿포로 럭셔리 투어</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <title>2026 SAPPORO PREMIUM SUMMER JOURNEY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2c3e50;
-            --accent: #d4af37; /* gold */
-            --bg: #fafafa;
+            --primary: #1a252c;
+            --accent: #c49a45; /* premium gold */
+            --bg: #f8f9fa;
+            --text: #4a4a4a;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Noto Serif KR', serif;
             background-color: var(--bg);
-            color: #333;
+            color: var(--text);
             overflow-x: hidden;
+            line-height: 1.6;
         }
         /* Hero Section */
         .hero {
@@ -34,7 +36,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.85));
         }
         .hero-content {
             position: relative;
@@ -45,48 +47,86 @@
         .hero-subtitle {
             font-family: 'Montserrat', sans-serif;
             font-size: 1.2rem;
-            letter-spacing: 5px;
+            letter-spacing: 6px;
             text-transform: uppercase;
             margin-bottom: 20px;
             color: var(--accent);
+            font-weight: 600;
         }
         .hero-title {
-            font-size: 4rem;
+            font-size: 4.5rem;
             font-weight: 700;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            text-shadow: 2px 4px 15px rgba(0,0,0,0.6);
+            letter-spacing: -2px;
         }
-        .hero-date {
-            font-size: 1.5rem;
+        .hero-desc {
+            font-size: 1.3rem;
             font-weight: 400;
+            opacity: 0.9;
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* Intro Info Section */
+        .intro-section {
+            background: white;
+            padding: 80px 20px;
+            text-align: center;
+            max-width: 900px;
+            margin: -50px auto 50px auto;
+            position: relative;
+            z-index: 2;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+        .intro-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            text-align: left;
+        }
+        .intro-box {
+            background: var(--bg);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+        }
+        .intro-box h4 { font-size: 1.2rem; color: var(--primary); margin-bottom: 15px; }
+        .intro-box p, .intro-box ul { font-size: 1rem; color: #555; }
+        .intro-box ul { padding-left: 20px; margin-top: 10px; }
+
         /* Section Global */
         section {
-            padding: 100px 20px;
+            padding: 60px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
         }
         .section-header h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: var(--primary);
             position: relative;
             display: inline-block;
+            letter-spacing: -1px;
         }
         .section-header h2::after {
             content: '';
             position: absolute;
-            width: 50%; height: 3px;
+            width: 40%; height: 3px;
             background: var(--accent);
-            bottom: -15px; left: 25%;
+            bottom: -20px; left: 30%;
         }
 
         /* Day Cards Layout */
@@ -94,10 +134,10 @@
             display: flex;
             flex-direction: column;
             background: white;
-            border-radius: 20px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-            margin-bottom: 80px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.06);
+            margin-bottom: 100px;
             opacity: 0;
             transform: translateY(50px);
             transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -107,64 +147,71 @@
             transform: translateY(0);
         }
         .day-card.reverse { flex-direction: row-reverse; }
-        @media(min-width: 900px) {
-            .day-card { flex-direction: row; height: 500px; }
+        @media(min-width: 1000px) {
+            .day-card { flex-direction: row; height: 550px; }
             .day-image, .day-info { flex: 1; }
         }
         
         .day-image {
             position: relative;
-            min-height: 300px;
+            min-height: 350px;
         }
         .day-image img {
             width: 100%; height: 100%;
             object-fit: cover;
             position: absolute;
             top: 0; left: 0;
+            transition: transform 0.5s ease;
+        }
+        .day-card:hover .day-image img {
+            transform: scale(1.05);
         }
         .day-info {
-            padding: 50px;
+            padding: 60px;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            background: white;
+            z-index: 1;
         }
         .day-badge {
-            background: var(--primary);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 30px;
-            align-self: flex-start;
             font-family: 'Montserrat', sans-serif;
+            color: var(--accent);
             font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
         }
         .day-title {
-            font-size: 2rem;
-            margin-bottom: 20px;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
             color: var(--primary);
+            line-height: 1.3;
         }
         .day-desc {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             line-height: 1.8;
-            color: #555;
-            margin-bottom: 30px;
+            color: #666;
+            margin-bottom: 35px;
         }
         .highlight-list {
             list-style: none;
         }
         .highlight-list li {
-            margin-bottom: 10px;
-            padding-left: 25px;
+            margin-bottom: 12px;
+            padding-left: 28px;
             position: relative;
             font-weight: bold;
-            color: #333;
+            color: var(--primary);
+            font-size: 1.05rem;
         }
         .highlight-list li::before {
-            content: '✓';
+            content: '◆';
             position: absolute;
             left: 0; color: var(--accent);
-            font-weight: bold;
+            font-size: 0.9rem;
+            top: 2px;
         }
 
         /* Call to Action */
@@ -172,16 +219,19 @@
             background: var(--primary);
             color: white;
             text-align: center;
-            padding: 80px 20px;
+            padding: 100px 20px;
             margin-top: 50px;
+            background-image: linear-gradient(to right, #1a252c, #2c3e50);
         }
-        .cta h2 { font-size: 2.2rem; margin-bottom: 20px; }
-        .cta p { font-size: 1.2rem; opacity: 0.8; }
+        .cta h2 { font-size: 2.5rem; margin-bottom: 25px; color: var(--accent); font-weight: 700; }
+        .cta p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 0 auto; line-height: 1.8; }
         
-        @media(max-width: 600px) {
-            .hero-title { font-size: 2.5rem; }
-            .day-info { padding: 30px 20px; }
-            .day-title { font-size: 1.5rem; }
+        @media(max-width: 768px) {
+            .hero-title { font-size: 3rem; }
+            .intro-grid { grid-template-columns: 1fr; }
+            .day-info { padding: 40px 25px; }
+            .day-title { font-size: 1.8rem; }
+            .section-header h2 { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -189,130 +239,212 @@
 
     <header class="hero">
         <div class="hero-content">
-            <div class="hero-subtitle">Premium Family Trip</div>
-            <h1 class="hero-title">SAPPORO SUMMER</h1>
-            <p class="hero-date">2026. 07. 04 ~ 07. 07</p>
+            <div class="hero-subtitle">Premium Private Tour</div>
+            <h1 class="hero-title">SAPPORO ESCAPE</h1>
+            <p class="hero-desc">2026. 07. 04 — 07. 07 | Exclusive Journey in Hokkaido</p>
         </div>
     </header>
 
+    <div class="intro-section">
+        <h2 class="intro-title">여행 전 필수 안내 사항</h2>
+        <div class="intro-grid">
+            <div class="intro-box">
+                <h4>⛅ 7월 초 삿포로 기후 및 복장</h4>
+                <p>홋카이도의 7월 초는 한국의 초여름과 유사하여 여행의 최적기입니다. 최고기온 24도, 최저기온 16도 내외로 쾌적합니다.</p>
+                <ul>
+                    <li><b>주간:</b> 가벼운 반팔, 쾌적한 리넨 셔츠</li>
+                    <li><b>야간/산간:</b> 일교차 대비용 얇은 가디건, 바람막이 필수</li>
+                </ul>
+            </div>
+            <div class="intro-box">
+                <h4>🎒 실무 준비물 및 이동 팁</h4>
+                <p>부모님의 컨디션을 최우선으로 고려한 여유로운 동선 설계가 필요합니다.</p>
+                <ul>
+                    <li>편안하고 쿠션감 있는 도보용 트레킹화/운동화</li>
+                    <li>강한 여름 자외선을 피할 양산, 선글라스</li>
+                    <li>장거리 이동 시 택시 또는 지정 좌석 열차 활용 권장</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <section>
         <div class="section-header">
-            <h2>완벽한 3박 4일 여정</h2>
+            <h2>여정의 주요 하이라이트</h2>
         </div>
 
-        <!-- Day 1 -->
+        <!-- Day 1: Clock Tower -->
         <div class="day-card">
             <div class="day-image">
-                <img src="images/susukino.jpg" alt="스스키노 야경">
+                <img src="images/clock_tower.jpg" alt="삿포로 시계탑">
             </div>
             <div class="day-info">
-                <div class="day-badge">DAY 1</div>
-                <h3 class="day-title">삿포로의 화려한 밤과 미식</h3>
+                <div class="day-badge">DAY 1 Afternoon</div>
+                <h3 class="day-title">홋카이도 개척의 상징, 삿포로 시계탑</h3>
                 <p class="day-desc">
-                    도착 첫날, 피로를 풀고 홋카이도 최대 번화가인 <b>스스키노</b>로 향합니다. 
-                    화려한 네온사인과 닛카상 앞에서의 기념 촬영, 그리고 현지의 맛을 그대로 살린 
-                    명물 <b>징기스칸(양고기)</b>으로 최고의 첫 저녁 만찬을 즐깁니다.
+                    신치토세 공항 도착 후 도심으로 진입하여 가장 먼저 마주하는 삿포로의 역사적 랜드마크입니다. 1878년에 지어진 새하얀 목조 건물과 붉은 지붕을 배경으로, 부모님과 함께 여행의 첫 시작을 알리는 뜻깊은 기념사진을 남기실 수 있습니다.
                 </p>
                 <ul class="highlight-list">
-                    <li>오후 5시 신치토세 공항 도착 및 이동</li>
-                    <li>스스키노 거리 야경 감상</li>
-                    <li>저녁 식사: 징기스칸 화로구이</li>
+                    <li>공항에서 도심 호텔까지 VIP 픽업/택시 이동</li>
+                    <li>삿포로 시계탑(Tokeidai) 건축 양식 감상 및 산책</li>
                 </ul>
             </div>
         </div>
 
-        <!-- Day 2 -->
+        <!-- Day 1: Beer Museum -->
         <div class="day-card reverse">
             <div class="day-image">
-                <img src="images/blue_pond.jpg" alt="비에이 청의 호수">
+                <img src="images/beer_museum.jpg" alt="삿포로 맥주 박물관">
             </div>
             <div class="day-info">
-                <div class="day-badge">DAY 2 오전</div>
-                <h3 class="day-title">대자연의 경이로움, 비에이</h3>
+                <div class="day-badge">DAY 1 Evening</div>
+                <h3 class="day-title">붉은 벽돌과 깊은 풍미, 삿포로 맥주 박물관</h3>
                 <p class="day-desc">
-                    둘째 날은 홋카이도 여름 여행의 핵심입니다. 에메랄드 물감을 풀어놓은 듯한 
-                    신비로운 <b>청의 호수(아오이이케)</b>와 웅장한 폭포를 감상합니다. 
-                    파노라마처럼 펼쳐지는 언덕 풍경이 부모님의 마음을 사로잡을 것입니다.
+                    담쟁이덩굴이 고풍스럽게 얽힌 붉은 벽돌의 맥주 박물관을 방문합니다. 일본 맥주 산업의 발상지에서 갓 뽑아낸 신선한 삿포로 클래식 생맥주를 시음하며, 깊고 진한 홋카이도의 첫맛을 음미합니다.
                 </p>
                 <ul class="highlight-list">
-                    <li>청의 호수 (아오이이케) 산책</li>
-                    <li>흰수염 폭포 감상</li>
-                    <li>패치워크 로드 (세븐스타 나무 등)</li>
+                    <li>개척사 시대의 붉은 벽돌 건축물 관람</li>
+                    <li>프리미엄 삿포로 클래식 3종 테이스팅 셋트 경험</li>
                 </ul>
             </div>
         </div>
 
-        <!-- Day 2 continued -->
+        <!-- Day 1: TV Tower & Susukino -->
         <div class="day-card">
             <div class="day-image">
-                <img src="images/farm_tomita.jpg" alt="팜 토미타">
+                <img src="images/tv_tower.jpg" alt="오도리 공원과 TV 타워">
             </div>
             <div class="day-info">
-                <div class="day-badge">DAY 2 오후</div>
-                <h3 class="day-title">보랏빛 물결, 후라노 라벤더</h3>
+                <div class="day-badge">DAY 1 Night</div>
+                <h3 class="day-title">빛나는 오도리 공원과 스스키노 미식 투어</h3>
                 <p class="day-desc">
-                    일본 최대급 라벤더 밭인 <b>팜 토미타</b>에서 끝없이 펼쳐진 보랏빛 카펫을 걷습니다. 
-                    향긋한 라벤더 향기와 함께 달콤한 보라색 라벤더 아이스크림을 맛보며 
-                    잊지 못할 여름날의 추억을 남깁니다.
+                    도심을 가로지르는 오도리 공원의 은은한 분수와 TV 타워의 일루미네이션을 감상한 뒤, 화려한 스스키노 거리로 향합니다. 최고급 참숯 화로에서 구워내는 부드러운 홋카이도 명물 '징기스칸(양고기)' 코스 요리가 기다립니다.
                 </p>
                 <ul class="highlight-list">
-                    <li>팜 토미타 꽃밭 산책</li>
-                    <li>인생 사진 촬영 타임</li>
-                    <li>후라노 멜론 & 라벤더 아이스크림</li>
+                    <li>오도리 공원 TV 타워 야경 조망</li>
+                    <li>스스키노 닛카상 야경 투어</li>
+                    <li>현지 최고급 징기스칸 화로구이 만찬</li>
                 </ul>
             </div>
         </div>
 
-        <!-- Day 3 -->
+        <!-- Day 2: Nijo Market -->
         <div class="day-card reverse">
             <div class="day-image">
-                <img src="images/otaru.jpg" alt="오타루 운하">
+                <img src="images/nijo_market.jpg" alt="니조 시장">
             </div>
             <div class="day-info">
-                <div class="day-badge">DAY 3 오전</div>
-                <h3 class="day-title">낭만이 흐르는 항구 도시, 오타루</h3>
+                <div class="day-badge">DAY 2 Morning</div>
+                <h3 class="day-title">북해도 바다의 맛, 니조 시장 아침 산책</h3>
                 <p class="day-desc">
-                    영화 '러브레터'의 배경이 된 <b>오타루</b>로 향합니다. 옛 창고들이 늘어선 
-                    아름다운 운하를 따라 걷고, 오르골당에서 들려오는 영롱한 소리를 감상합니다. 
-                    상쾌한 바닷바람과 달콤한 르타오 디저트를 함께 즐겨보세요.
+                    둘째 날 아침은 활기가 넘치는 삿포로의 주방, 니조 시장(Nijo Ichiba)에서 시작합니다. 갓 잡아 올린 거대한 털게와 성게알, 연어알이 넘칠 듯이 담긴 신선한 '카이센동(해산물 덮밥)'으로 럭셔리한 아침 식사를 즐깁니다.
                 </p>
                 <ul class="highlight-list">
-                    <li>오타루 운하 산책</li>
-                    <li>오타루 오르골 본당 관람</li>
-                    <li>르타오(LeTAO) 디저트 타임</li>
+                    <li>아침 시장의 생동감 넘치는 분위기 체험</li>
+                    <li>홋카이도 프리미엄 카이센동 조식</li>
                 </ul>
             </div>
         </div>
 
-        <!-- Day 3 & 4 -->
+        <!-- Day 2: Shikisai & Blue Pond -->
+        <div class="day-card">
+            <div class="day-image">
+                <img src="images/shikisai.jpg" alt="사계채의 언덕">
+            </div>
+            <div class="day-info">
+                <div class="day-badge">DAY 2 Afternoon</div>
+                <h3 class="day-title">대자연의 마스터피스, 비에이 파노라마 로드</h3>
+                <p class="day-desc">
+                    광활한 언덕이 무지개빛 꽃들로 뒤덮인 '사계채의 언덕'을 트랙터 버스로 편안하게 둘러본 후, 에메랄드 물감을 풀어놓은 듯한 신비로운 '청의 호수(아오이이케)'와 장엄한 흰수염 폭포의 절경을 마주합니다.
+                </p>
+                <ul class="highlight-list">
+                    <li>무지개 카펫을 연상케 하는 사계채의 언덕 관람</li>
+                    <li>신비로운 청의 호수 및 흰수염 폭포 산책</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 2: Farm Tomita & Ningle Terrace -->
+        <div class="day-card reverse">
+            <div class="day-image">
+                <img src="images/ningle_terrace.jpg" alt="닝구르 테라스">
+            </div>
+            <div class="day-info">
+                <div class="day-badge">DAY 2 Evening</div>
+                <h3 class="day-title">요정의 숲, 후라노 라벤더와 닝구르 테라스</h3>
+                <p class="day-desc">
+                    팜 토미타에서 짙은 라벤더 향기를 맡으며 끝없는 보랏빛 들판을 거닙니다. 해가 저물 무렵, 깊은 전나무 숲속에 은은한 조명이 켜지는 통나무 공방 마을 '닝구르 테라스'를 방문하여 동화 속 같은 고요한 저녁을 맞이합니다.
+                </p>
+                <ul class="highlight-list">
+                    <li>팜 토미타 라벤더 관람 및 멜론 시식</li>
+                    <li>닝구르 테라스 숲속 수공예 공방 산책</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 3: Shakotan -->
+        <div class="day-card">
+            <div class="day-image">
+                <img src="images/shakotan.jpg" alt="샤코탄 해안">
+            </div>
+            <div class="day-info">
+                <div class="day-badge">DAY 3 Morning</div>
+                <h3 class="day-title">투명한 코발트블루, 샤코탄 카무이 곶</h3>
+                <p class="day-desc">
+                    셋째 날은 북해도의 거친 자연을 품은 해안 절경으로 향합니다. '샤코탄 블루'라 불리는 압도적으로 투명하고 푸른 바다를 내려다보며 일상의 스트레스를 완벽하게 날려버리는 상쾌한 시간을 가집니다.
+                </p>
+                <ul class="highlight-list">
+                    <li>기암괴석과 어우러진 카무이 곶 절경 조망</li>
+                    <li>지역 특산물 최고급 성게알(우니) 정찬</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 3: Otaru & Tenguyama -->
+        <div class="day-card reverse">
+            <div class="day-image">
+                <img src="images/tenguyama.jpg" alt="텐구야마 야경">
+            </div>
+            <div class="day-info">
+                <div class="day-badge">DAY 3 Afternoon to Night</div>
+                <h3 class="day-title">오타루 낭만 산책과 텐구야마 야경</h3>
+                <p class="day-desc">
+                    영화 '러브레터'의 무대인 오타루. 붉은 벽돌 창고가 줄지어 선 아름다운 운하를 걷고 오르골당의 영롱한 선율을 감상합니다. 밤이 되면 케이블카를 타고 텐구야마 전망대에 올라 보석처럼 빛나는 홋카이도의 황홀한 바다 야경을 내려다봅니다.
+                </p>
+                <ul class="highlight-list">
+                    <li>오타루 운하 및 오르골 본당 관람</li>
+                    <li>달콤한 르타오(LeTAO) 본점 애프터눈 티 타임</li>
+                    <li>로프웨이 탑승 및 텐구야마 홋카이도 3대 야경 감상</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 4: Jigokudani -->
         <div class="day-card">
             <div class="day-image">
                 <img src="images/jigokudani.jpg" alt="노보리베츠 지옥계곡">
             </div>
             <div class="day-info">
-                <div class="day-badge">DAY 3 밤 & DAY 4</div>
-                <h3 class="day-title">최고의 휴식, 노보리베츠 온천</h3>
+                <div class="day-badge">DAY 4 Morning</div>
+                <h3 class="day-title">궁극의 치유, 노보리베츠 전통 료칸 휴양</h3>
                 <p class="day-desc">
-                    여정의 마무리는 부모님을 위한 진정한 힐링입니다. 
-                    끓어오르는 수증기가 장관을 이루는 <b>지옥계곡(지고쿠다니)</b>을 구경하고, 
-                    전통 료칸에서 가이세키 코스 요리와 천연 유황 온천욕으로 피로를 완벽하게 풉니다.
+                    여정의 피날레는 일본 최고의 온천 명소인 노보리베츠입니다. 수증기가 솟아오르는 신비로운 지옥계곡(지고쿠다니)의 풍광을 감상하고, 격조 높은 전통 료칸에서 프라이빗 유황 온천욕과 정교한 가이세키 요리로 부모님께 최고의 힐링을 선사합니다.
                 </p>
                 <ul class="highlight-list">
-                    <li>전통 료칸 숙박 & 가이세키 요리</li>
-                    <li>부모님 맞춤 천연 유황 온천욕</li>
-                    <li>지옥계곡(지고쿠다니) 산책 후 귀국</li>
+                    <li>장엄한 지옥계곡(지고쿠다니) 화산 지대 산책</li>
+                    <li>프리미엄 료칸 가이세키 정찬 및 온천 테라피</li>
+                    <li>여유로운 체크아웃 후 전용 차량으로 공항 이동</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <footer class="cta">
-        <h2>여행 준비가 완료되었습니다</h2>
-        <p>기억에 남을 부모님과의 소중한 삿포로 여행, 즐겁게 다녀오시길 바랍니다.</p>
+        <h2>잊지 못할 여정의 완벽한 가이드</h2>
+        <p>본 페이지는 2026년 여름, 부모님과 함께하는 홋카이도 VIP 투어의 전체 일정을 체계적으로 기획한 상세 가이드 문서입니다. 현지 상황에 맞추어 유연하게 일정을 조율하며, 최고의 휴식과 품격 있는 여행을 경험하시길 기원합니다.</p>
     </footer>
 
     <script>
-        // 스크롤 시 스르륵 나타나는 페이드 애니메이션
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
